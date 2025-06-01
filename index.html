@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tzainten - I like coding.</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body style="visibility: hidden;">
+<script>
+    let domReady = (cb) => {
+    document.readyState === 'interactive' || document.readyState === 'complete'
+        ? cb()
+        : document.addEventListener('DOMContentLoaded', cb);
+    };
+
+    domReady(() => {
+        document.body.style.visibility = 'visible';
+    });
+</script>
+
+<div class="body-container">
+<div class="page-container">
+
+<div class="masthead fade-me-in">
+    <img class="avatar" src="images/avatar.jpg">
+    <div class="card-container">
+        <h1 style="line-height: 0;">Hi, I'm <span class="username">tzainten</span>. I like coding.</h1>
+        <div class="social-links">
+            <a href="https://github.com/tzainten/" class="social-button">
+                <img src="images/github.png" width="32" height="32">
+            </a>
+            <a href="https://steamcommunity.com/id/tzainten" class="social-button"> 
+                <img src="images/steam.png" width="32" height="32">
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="fade-me-in quick spacer"></div>
+
+<div class="fade-me-in" style="display: flex; flex-direction: column;">
+<span class="title">PROJECTS</span>
+<div class="carousel" data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true }'>
+    <div class="carousel-cell wide">
+        <div class="backdrop">
+            <img class="logo" src="images/windowsense.png">
+        </div>
+        <video width="600" height="168" autoplay loop muted>
+            <source src="videos/automultiscreenblank.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="carousel-cell">
+        <video width="300" height="168" autoplay loop muted>
+            <source src="videos/datatables.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="carousel-cell">
+        <video width="300" height="168" autoplay loop muted>
+            <source src="videos/chatredux.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="carousel-cell">
+        <video width="300" height="168" autoplay loop muted>
+            <source src="videos/blocks.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+</div>
+
+<div class="fade-me-in">
+<span class="title">ABOUT ME</span>
+<div style="display: flex; flex-direction: column; gap: 10px;">
+    <p>I am driven by a passion of taking a problem and making it go away with code. </p>
+    <br>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <a href="https://www.lua.org/about.html">
+            <img class="social-button" style="margin-right: 10px" src="images/lua.png" width="32" height="32">
+        </a>
+        <p>I have over <span style="color: gold;">12 years</span> of experience with Lua.</p>
+    </div>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <a href="https://gamemaker.io/en">
+            <img class="social-button" style="margin-right: 10px" src="images/gm.png" width="32" height="32">
+        </a>
+        <p>I have over <span style="color: gold;">10 years</span> of experience with GameMaker.</p>
+    </div>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <img class="social-button" style="margin-right: 10px" src="images/cs.png" width="32" height="32">
+        <p>I have over <span style="color: gold;">6 years</span> of experience with C#.</p>
+    </div>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <img class="social-button" style="margin-right: 10px" src="images/unity.png" width="32" height="32">
+        <p>I have over <span style="color: gold;">5 years</span> of experience with Unity.</p>
+    </div>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <img class="social-button" style="margin-right: 10px" src="images/cpp.png" width="32" height="32">
+        <p>I have over <span style="color: gold;">3 years</span> of experience with C++.</p>
+    </div>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <img class="social-button" style="margin-right: 10px" src="images/ue.png" width="32" height="32">
+        <p>I have over <span style="color: gold;">2 years</span> of experience with Unreal Engine 5.</p>
+    </div>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <img class="social-button" style="margin-right: 10px; border-radius: 8px;" src="images/sbox.png" width="32" height="32">
+        <p>I have over <span style="color: gold;">2 years</span> of experience with s&box.</p>
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<script>
+    const faders = document.querySelectorAll(".fade-me-in");
+
+    let i = 0;
+    faders.forEach((elem) => {
+        let amount = 0.15;
+
+        if (elem.classList.contains("quick"))
+            amount *= 0.5;
+
+        let delay = i * amount;
+        i++;
+
+        elem.style.opacity = 0;
+        elem.style.transition = `all 0.5s ease-out ${delay}s`;
+        elem.style.transform = 'scale(1.1)';
+        
+        setTimeout(()=>{
+            elem.style.opacity = 1;
+            elem.style.transform = 'scale(1)';
+            elem.classList.remove("fade-me-in");
+        }, 0);
+    });
+</script>
+
+<noscript><style>body { visibility: visible; }</style></noscript>
+</body>
+</html>
