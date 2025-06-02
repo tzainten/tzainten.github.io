@@ -164,6 +164,22 @@
         });
     }
 
+    document.addEventListener('DOMContentLoaded', () => {
+        var videos = document.querySelectorAll('video');
+
+        videos.forEach(function(elem) {
+            elem.controls = false;
+
+            elem.addEventListener('play', () => {
+                this.controls = false;
+            });
+
+            elem.addEventListener('pause', () => {
+                this.controls = false;
+            });
+        });
+    });
+
     const faders = document.querySelectorAll(".fade-me-in");
 
     let i = 0;
