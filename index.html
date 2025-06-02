@@ -200,6 +200,8 @@
     };
 
     const pause = (e) => {
+        console.log(e);
+        console.log(e.target);
         let flickity = e.target.flickityInstance
         flickity.isPaused = true;
     };
