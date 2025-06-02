@@ -101,7 +101,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .spacer {
@@ -145,6 +145,31 @@ li a:hover {
 
 .username {
   background: -webkit-linear-gradient(#ffffff, #226f92);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.show-all {
+  margin-left: 10px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 15px;
+  transition: all 0.1s ease-out;
+}
+.show-all .show-all-text {
+  background: linear-gradient(to right, #5459AC, #648DB3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.show-all:hover {
+  transform: scale(1.15);
+}
+.show-all:hover .show-all-text {
+  background: linear-gradient(to left, #F7374F, #88304E);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
