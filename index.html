@@ -270,41 +270,10 @@
         flickity.tickerSpeed = tickerSpeed;
         carousel.flickityInstance = flickity;
 
-        // Add Event Listeners
-        // carousel.addEventListener('mouseenter', pause, false);
-        // carousel.addEventListener('focusin', pause, false);
-        // carousel.addEventListener('mouseleave', play, false);
-        // carousel.addEventListener('focusout', play, false);
-
-        // carousel.addEventListener('pointerover', pause, false);
-        // carousel.addEventListener('pointerout', play, false);
-
+        carousel.addEventListener('pointerover', pause, false);
+        carousel.addEventListener('pointerout', play, false);
         carousel.addEventListener('pointerdown', pause, false);
         carousel.addEventListener('pointerup', play, false);
-
-        // carousel.addEventListener('touchstart', (e) => {
-        //     if (typeof e !== "undefined" && typeof e.target !== "undefined")
-        //     {
-        //         pause();
-        //         e.preventDefault();
-        //     }
-        // });
-
-        // carousel.addEventListener('touchmove', (e) => {
-        //     if (typeof e !== "undefined" && typeof e.target !== "undefined")
-        //     {
-        //         pause();
-        //         e.preventDefault();
-        //     }
-        // });
-
-        // carousel.addEventListener('touchend', (e) => {
-        //     if (typeof e !== "undefined" && typeof e.target !== "undefined")
-        //     {
-        //         play();
-        //         e.preventDefault();
-        //     }
-        // });
 
         flickity.on('dragStart', () => {
             pause();

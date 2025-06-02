@@ -104,6 +104,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   margin-bottom: 15px;
@@ -178,8 +179,20 @@ li a:hover {
 .show-all:hover {
   transform: scale(1.15);
 }
+
+.show-all:not(:active){
+  transform: scale(1);
+}
+
 .show-all:hover .show-all-text {
   background: linear-gradient(to left, #F7374F, #88304E);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.show-all:not(:active) .show-all-text {
+  background: linear-gradient(to right, #5459AC, #648DB3);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
