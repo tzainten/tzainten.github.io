@@ -219,8 +219,7 @@
     };
 
     const pause = (e) => {
-        console.log(e);
-        if (typeof e.target !== "undefined")
+        if (typeof e !== "undefined" && typeof e.target !== "undefined")
         {
             console.log(e.target);
             let flickity = e.target.flickityInstance
@@ -232,7 +231,7 @@
     };
 
     const play = (e) => {
-        if (typeof e.target !== "undefined")
+        if (typeof e !== "undefined" && typeof e.target !== "undefined")
         {
             let flickity = e.target.flickityInstance
             if (typeof flickity !== "undefined" && flickity.isPaused) {
