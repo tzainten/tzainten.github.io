@@ -219,10 +219,11 @@
     };
 
     const pause = (e) => {
+        console.log("pause");
         if (typeof e !== "undefined" && typeof e.target !== "undefined")
         {
             console.log(e.target);
-            let flickity = e.target.flickityInstance
+            let flickity = getFlickity(e.target);
             if (typeof flickity !== "undefined")
             {
                 flickity.isPaused = true;
@@ -231,13 +232,23 @@
     };
 
     const play = (e) => {
+        console.log("play");
         if (typeof e !== "undefined" && typeof e.target !== "undefined")
         {
-            let flickity = e.target.flickityInstance
+            let flickity = getFlickity(e.target);
             if (typeof flickity !== "undefined" && flickity.isPaused) {
                 flickity.isPaused = false;
                 window.requestAnimationFrame(() => update(flickity));
             }
+        }
+    };
+
+    const getFlickity = (elem) => {
+        while (typeof elem !== "undefined")
+        {
+            if (typeof elem.flickityInstance !== "undefined")
+                return elem.flickityInstance;
+            elem = elem.parentElement;
         }
     };
 
@@ -258,37 +269,40 @@
         carousel.flickityInstance = flickity;
 
         // Add Event Listeners
-        carousel.addEventListener('mouseenter', pause, false);
-        carousel.addEventListener('focusin', pause, false);
-        carousel.addEventListener('mouseleave', play, false);
-        carousel.addEventListener('focusout', play, false);
+        // carousel.addEventListener('mouseenter', pause, false);
+        // carousel.addEventListener('focusin', pause, false);
+        // carousel.addEventListener('mouseleave', play, false);
+        // carousel.addEventListener('focusout', play, false);
 
-        carousel.addEventListener('pointerover', pause, false);
-        carousel.addEventListener('pointerout', play, false);
+        // carousel.addEventListener('pointerover', pause, false);
+        // carousel.addEventListener('pointerout', play, false);
 
-        carousel.addEventListener('touchstart', (e) => {
-            if (typeof e !== "undefined" && typeof e.target !== "undefined")
-            {
-                pause();
-                e.preventDefault();
-            }
-        });
+        carousel.addEventListener('pointerdown', pause, false);
+        carousel.addEventListener('pointerup', play, false);
 
-        carousel.addEventListener('touchmove', (e) => {
-            if (typeof e !== "undefined" && typeof e.target !== "undefined")
-            {
-                pause();
-                e.preventDefault();
-            }
-        });
+        // carousel.addEventListener('touchstart', (e) => {
+        //     if (typeof e !== "undefined" && typeof e.target !== "undefined")
+        //     {
+        //         pause();
+        //         e.preventDefault();
+        //     }
+        // });
 
-        carousel.addEventListener('touchend', (e) => {
-            if (typeof e !== "undefined" && typeof e.target !== "undefined")
-            {
-                play();
-                e.preventDefault();
-            }
-        });
+        // carousel.addEventListener('touchmove', (e) => {
+        //     if (typeof e !== "undefined" && typeof e.target !== "undefined")
+        //     {
+        //         pause();
+        //         e.preventDefault();
+        //     }
+        // });
+
+        // carousel.addEventListener('touchend', (e) => {
+        //     if (typeof e !== "undefined" && typeof e.target !== "undefined")
+        //     {
+        //         play();
+        //         e.preventDefault();
+        //     }
+        // });
 
         flickity.on('dragStart', () => {
             pause();
