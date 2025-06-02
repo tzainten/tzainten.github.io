@@ -64,6 +64,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   color: white;
+  overflow-x: hidden;
 }
 
 .body-container {
@@ -73,6 +74,7 @@ body {
   align-items: center;
   width: 100%;
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 .page-container {
@@ -89,6 +91,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  overflow-x: hidden;
 }
 
 .title {
@@ -107,7 +110,8 @@ body {
 }
 
 h1 {
-  font-size: 25px;
+  font-size: 20px;
+  text-align: center;
 }
 
 .spacer {

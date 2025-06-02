@@ -40,7 +40,9 @@
 <div class="masthead fade-me-in">
     <img class="avatar" src="images/avatar.jpg">
     <div class="card-container">
-        <h1 style="line-height: 0;">Hi, I'm <span class="username">tzainten</span>. I like coding.</h1>
+        <div>
+            <h1>Hi, I'm <span class="username">tzainten</span>. I like coding.</h1>
+        </div>
         <div class="social-links">
             <a href="https://github.com/tzainten/" class="social-button">
                 <img src="images/github.png" width="32" height="32">
@@ -202,7 +204,7 @@
             elem.style.opacity = 1;
             elem.style.transform = 'scale(1)';
             elem.classList.remove("fade-me-in");
-        }, 100);
+        }, 500);
     });
 
     let tickerSpeed = 0.33;
