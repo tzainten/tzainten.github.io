@@ -241,6 +241,13 @@
         });
         carousel.addEventListener('touchend', play, false);
 
+        carousel.addEventListener('pointerover', pause, false);
+        carousel.addEventListener('pointermove', (e) => {
+            e.preventDefault();
+        });
+        carousel.addEventListener('pointerout', play, false);
+        carousel.addEventListener('pointerup', play, false);
+
         flickity.on('dragStart', () => {
             flickity.isPaused = true;
         });
