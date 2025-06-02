@@ -202,7 +202,6 @@
     const pause = (e) => {
         let flickity = e.target.flickityInstance
         flickity.isPaused = true;
-        e.preventDefault();
     };
 
     const play = (e) => {
@@ -211,7 +210,6 @@
             flickity.isPaused = false;
             window.requestAnimationFrame(() => update(flickity));
         }
-        e.preventDefault();
     };
 
     const carousels = document.querySelectorAll(".carousel");
@@ -238,6 +236,9 @@
 
         // Handle mobile scenario
         carousel.addEventListener('touchstart', pause, false);
+        carousel.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+        });
         carousel.addEventListener('touchend', play, false);
 
         flickity.on('dragStart', () => {
