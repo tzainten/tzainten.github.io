@@ -201,16 +201,22 @@
 
     const pause = (e) => {
         console.log(e);
-        console.log(e.target);
-        let flickity = e.target.flickityInstance
-        flickity.isPaused = true;
+        if (typeof e.target !== "undefined")
+        {
+            console.log(e.target);
+            let flickity = e.target.flickityInstance
+            flickity.isPaused = true;
+        }
     };
 
     const play = (e) => {
-        let flickity = e.target.flickityInstance
-        if (flickity.isPaused) {
-            flickity.isPaused = false;
-            window.requestAnimationFrame(() => update(flickity));
+        if (typeof e.target !== "undefined")
+        {
+            let flickity = e.target.flickityInstance
+            if (flickity.isPaused) {
+                flickity.isPaused = false;
+                window.requestAnimationFrame(() => update(flickity));
+            }
         }
     };
 
@@ -235,20 +241,6 @@
         carousel.addEventListener('focusin', pause, false);
         carousel.addEventListener('mouseleave', play, false);
         carousel.addEventListener('focusout', play, false);
-
-        // Handle mobile scenario
-        carousel.addEventListener('touchstart', pause, false);
-        carousel.addEventListener('touchmove', (e) => {
-            e.preventDefault();
-        });
-        carousel.addEventListener('touchend', play, false);
-
-        carousel.addEventListener('pointerover', pause, false);
-        carousel.addEventListener('pointermove', (e) => {
-            e.preventDefault();
-        });
-        carousel.addEventListener('pointerout', play, false);
-        carousel.addEventListener('pointerup', play, false);
 
         flickity.on('dragStart', () => {
             flickity.isPaused = true;
