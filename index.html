@@ -47,7 +47,7 @@
 
 <div class="fade-me-in" style="display: flex; flex-direction: column;">
 <span class="title">PROJECTS</span>
-<div class="carousel" data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true }'>
+<div class="carousel">
     <div class="carousel-cell wide">
         <div class="backdrop">
             <img class="logo" src="images/windowsense.png">
@@ -139,6 +139,62 @@
             elem.style.transform = 'scale(1)';
             elem.classList.remove("fade-me-in");
         }, 0);
+    });
+
+    let tickerSpeed = 0.33;
+
+    const update = (flickity) => {
+        if(!flickity) return;
+        if(flickity.isPaused) return;
+        if(!flickity.slides) return;
+        flickity.x = (flickity.x - flickity.tickerSpeed) % flickity.slideableWidth;
+        flickity.selectedIndex = flickity.dragEndRestingSelect();
+        flickity.updateSelectedSlide();
+        flickity.settle(flickity.x);
+        window.requestAnimationFrame(() => update(flickity));
+    };
+
+    const pause = (e) => {
+        let flickity = e.target.flickityInstance
+        flickity.isPaused = true;
+    };
+
+    const play = (e) => {
+        let flickity = e.target.flickityInstance
+        if (flickity.isPaused) {
+            flickity.isPaused = false;
+            window.requestAnimationFrame(() => update(flickity));
+        }
+    };
+
+    const carousels = document.querySelectorAll(".carousel");
+    carousels.forEach((carousel) => {
+        let flickity = new Flickity(carousel, {
+          autoPlay: false,
+          prevNextButtons: true,
+          pageDots: false,
+          draggable: true,
+          wrapAround: true,
+          selectedAttraction: 0.015,
+          friction: 0.25
+        });
+        flickity.x = 0;
+        flickity.isPaused = false;
+        flickity.tickerSpeed = tickerSpeed;
+        carousel.flickityInstance = flickity;
+
+        // Add Event Listeners
+        carousel.addEventListener('mouseenter', pause, false);
+        carousel.addEventListener('focusin', pause, false);
+        carousel.addEventListener('mouseleave', play, false);
+        carousel.addEventListener('focusout', play, false);
+
+        flickity.on('dragStart', () => {
+            flickity.isPaused = true;
+        });
+    
+        // Start Ticker
+        window.requestAnimationFrame(() => update(flickity));
     });
 </script>
 
