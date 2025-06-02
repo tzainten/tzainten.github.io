@@ -225,6 +225,10 @@
         carousel.addEventListener('mouseleave', play, false);
         carousel.addEventListener('focusout', play, false);
 
+        // Handle mobile scenario
+        carousel.addEventListener('touchstart', pause, false);
+        carousel.addEventListener('touchend', play, false);
+
         flickity.on('dragStart', () => {
             flickity.isPaused = true;
         });
