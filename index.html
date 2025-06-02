@@ -87,51 +87,55 @@
 </div>
 
 <div class="fade-me-in">
+<div style="display: flex; flex-direction: row; align-items: center;">
 <span class="title">ABOUT ME</span>
+<div class="show-all">
+    <a href="" class="show-all-text" style="text-decoration: none;">More Details</a>
+</div>
+</div>
 <div style="display: flex; flex-direction: column; gap: 10px;">
-    <p>I am driven by a passion of taking a problem and making it go away with code. </p>
-    <br>
+    <p>I am driven by a passion of taking a problem and making it go away with code.</p>
     <div class="fade-me-in" style="display: flex; flex-direction: row; align-items: center;">
         <a href="https://www.lua.org/about.html">
             <img class="social-button" style="margin-right: 10px" src="images/lua.png" width="32" height="32">
         </a>
-        <p>I have over <span style="color: gold;">12 years</span> of experience with Lua.</p>
+        <p>I have over <span id="lua-xp" style="color: gold;">12 years</span> of experience with Lua.</p>
     </div>
     <div class="fade-me-in" style="display: flex; flex-direction: row; align-items: center;">
         <a href="https://gamemaker.io/en">
             <img class="social-button" style="margin-right: 10px" src="images/gm.png" width="32" height="32">
         </a>
-        <p>I have over <span style="color: gold;">10 years</span> of experience with GameMaker.</p>
+        <p>I have over <span id="gm-xp" style="color: gold;">10 years</span> of experience with GameMaker.</p>
     </div>
     <div class="fade-me-in" style="display: flex; flex-direction: row; align-items: center;">
         <a href="https://learn.microsoft.com/en-us/dotnet/csharp/">
             <img class="social-button" style="margin-right: 10px" src="images/cs.png" width="32" height="32">
         </a>
-        <p>I have over <span style="color: gold;">6 years</span> of experience with C#.</p>
+        <p>I have over <span id="cs-xp" style="color: gold;">6 years</span> of experience with C#.</p>
     </div>
     <div class="fade-me-in" style="display: flex; flex-direction: row; align-items: center;">
         <a href="https://unity.com/">
             <img class="social-button" style="margin-right: 10px" src="images/unity.png" width="32" height="32">
         </a>
-        <p>I have over <span style="color: gold;">5 years</span> of experience with Unity.</p>
+        <p>I have over <span id="unity-xp" style="color: gold;">5 years</span> of experience with Unity.</p>
     </div>
     <div class="fade-me-in" style="display: flex; flex-direction: row; align-items: center;">
         <a href="https://cplusplus.com/">
             <img class="social-button" style="margin-right: 10px" src="images/cpp.png" width="32" height="32">
         </a>
-        <p>I have over <span style="color: gold;">3 years</span> of experience with C++.</p>
+        <p>I have over <span id="cpp-xp" style="color: gold;">3 years</span> of experience with C++.</p>
     </div>
     <div class="fade-me-in" style="display: flex; flex-direction: row; align-items: center;">
         <a href="https://www.unrealengine.com/en-US">
             <img class="social-button" style="margin-right: 10px" src="images/ue.png" width="32" height="32">
         </a>
-        <p>I have over <span style="color: gold;">2 years</span> of experience with Unreal Engine 5.</p>
+        <p>I have over <span id="ue-xp" style="color: gold;">2 years</span> of experience with Unreal Engine 5.</p>
     </div>
     <div class="fade-me-in" style="display: flex; flex-direction: row; align-items: center;">
         <a href="https://sbox.game/">
             <img class="social-button" style="margin-right: 10px; border-radius: 6px;" src="images/sbox.png" width="32" height="32">
         </a>
-        <p>I have over <span style="color: gold;">2 years</span> of experience with s&box.</p>
+        <p>I have over <span id="sbox-xp" style="color: gold;">2 years</span> of experience with s&box.</p>
     </div>
 </div>
 </div>
@@ -218,6 +222,20 @@
         // Start Ticker
         window.requestAnimationFrame(() => update(flickity));
     });
+
+    function getXP(date1, date2) {
+        const year1 = date1.getFullYear();
+        const year2 = date2.getFullYear();
+        return Math.abs(year1 - year2).toString();
+    }
+
+    document.querySelector("#lua-xp").innerHTML = getXP(Date.now(), new Date("2013-01-01"));
+    document.querySelector("#gm-xp").innerHTML = getXP(Date.now(), new Date("2015-01-01"));
+    document.querySelector("#cs-xp").innerHTML = getXP(Date.now(), new Date("2019-01-01"));
+    document.querySelector("#unity-xp").innerHTML = getXP(Date.now(), new Date("2020-01-01"));
+    document.querySelector("#cpp-xp").innerHTML = getXP(Date.now(), new Date("2021-01-01"));
+    document.querySelector("#ue-xp").innerHTML = getXP(Date.now(), new Date("2021-01-01"));
+    document.querySelector("#sbox-xp").innerHTML = getXP(Date.now(), new Date("2021-01-01"));
 </script>
 
 <noscript><style>body { visibility: visible; }</style></noscript>
