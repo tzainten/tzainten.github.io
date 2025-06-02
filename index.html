@@ -242,6 +242,9 @@
         carousel.addEventListener('mouseleave', play, false);
         carousel.addEventListener('focusout', play, false);
 
+        carousel.addEventListener('pointerover', pause, false);
+        carousel.addEventListener('pointerout', play, false);
+
         flickity.on('dragStart', () => {
             flickity.isPaused = true;
         });
