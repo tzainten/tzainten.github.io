@@ -248,7 +248,11 @@
         carousel.addEventListener('pointerout', play, false);
 
         flickity.on('dragStart', () => {
-            flickity.isPaused = true;
+            pause();
+        });
+
+        flickity.on('dragEnd', () => {
+            play();
         });
     
         // Start Ticker
