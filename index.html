@@ -251,16 +251,17 @@
     function getXP(date1, date2) {
         const year1 = date1.getFullYear();
         const year2 = date2.getFullYear();
-        return Math.abs(year1 - year2).toString();
+        return Math.abs(year1 - year2).toString() + " years";
     }
 
-    document.querySelector("#lua-xp").innerHTML = getXP(Date.now(), new Date("2013-01-01"));
-    document.querySelector("#gm-xp").innerHTML = getXP(Date.now(), new Date("2015-01-01"));
-    document.querySelector("#cs-xp").innerHTML = getXP(Date.now(), new Date("2019-01-01"));
-    document.querySelector("#unity-xp").innerHTML = getXP(Date.now(), new Date("2020-01-01"));
-    document.querySelector("#cpp-xp").innerHTML = getXP(Date.now(), new Date("2021-01-01"));
-    document.querySelector("#ue-xp").innerHTML = getXP(Date.now(), new Date("2021-01-01"));
-    document.querySelector("#sbox-xp").innerHTML = getXP(Date.now(), new Date("2021-01-01"));
+    let now = new Date(Date.now());
+    document.querySelector("#lua-xp").innerHTML = getXP(now, new Date("2013-01-01"));
+    document.querySelector("#gm-xp").innerHTML = getXP(now, new Date("2015-01-01"));
+    document.querySelector("#cs-xp").innerHTML = getXP(now, new Date("2019-01-01"));
+    document.querySelector("#unity-xp").innerHTML = getXP(now, new Date("2020-01-01"));
+    document.querySelector("#cpp-xp").innerHTML = getXP(now, new Date("2021-01-01"));
+    document.querySelector("#ue-xp").innerHTML = getXP(now, new Date("2021-01-01"));
+    document.querySelector("#sbox-xp").innerHTML = getXP(now, new Date("2023-01-01"));
 </script>
 
 <noscript><style>body { visibility: visible; }</style></noscript>
