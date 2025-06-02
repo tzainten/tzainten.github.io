@@ -205,7 +205,10 @@
         {
             console.log(e.target);
             let flickity = e.target.flickityInstance
-            flickity.isPaused = true;
+            if (typeof flickity !== "undefined")
+            {
+                flickity.isPaused = true;
+            }
         }
     };
 
@@ -213,7 +216,7 @@
         if (typeof e.target !== "undefined")
         {
             let flickity = e.target.flickityInstance
-            if (flickity.isPaused) {
+            if (typeof flickity !== "undefined" && flickity.isPaused) {
                 flickity.isPaused = false;
                 window.requestAnimationFrame(() => update(flickity));
             }
