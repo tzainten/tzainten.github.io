@@ -154,6 +154,15 @@
 </div>
 
 <script>
+    if (document.referrer.indexOf(window.location.hostname) > -1)
+    {
+        let faders = document.querySelectorAll('.fade-me-in');
+        faders.forEach((elem) => {
+            elem.classList.remove('fade-me-in');
+            elem.style.opacity = 1;
+        });
+    }
+
     const faders = document.querySelectorAll(".fade-me-in");
 
     let i = 0;
@@ -193,6 +202,7 @@
     const pause = (e) => {
         let flickity = e.target.flickityInstance
         flickity.isPaused = true;
+        e.preventDefault();
     };
 
     const play = (e) => {
@@ -201,6 +211,7 @@
             flickity.isPaused = false;
             window.requestAnimationFrame(() => update(flickity));
         }
+        e.preventDefault();
     };
 
     const carousels = document.querySelectorAll(".carousel");
