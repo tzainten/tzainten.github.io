@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
 
     <script src="/lib/flickity/flickity.pkgd.min.js"></script>
+    <script src="/top_projects.js"></script>
 
     <meta name="description" content="I am driven by a passion of taking a problem and making it go away with code.">
 
@@ -67,37 +68,25 @@
     <div class="carousel-cell wide">
         <div class="backdrop">
             <a href="/projects/windowsense/">
-                <img class="logo" src="/images/windowsense.png">
+                <img class="logo" src="/projects/windowsense/images/logo.png">
             </a>
         </div>
-        <video class="noclick" preload="none" width="600" height="168" autoplay loop muted playsinline>
-            <source src="/videos/automultiscreenblank.mp4" type="video/mp4">
-        </video>
+        <video class="noclick" src="/projects/windowsense/videos/backdrop.mp4" type="video/mp4" preload="none" width="600" height="168" autoplay loop muted playsinline></video>
     </div>
     <div class="carousel-cell">
-        <video class="noclick" preload="none" width="300" height="168" autoplay loop muted playsinline>
-            <source src="/videos/datatables.mp4" type="video/mp4">
-        </video>
+        <video class="noclick" src="/projects/datatables/videos/backdrop.mp4" type="video/mp4" preload="none" width="300" height="168" autoplay loop muted playsinline></video>
     </div>
     <div class="carousel-cell">
-        <video class="noclick" preload="none" width="300" height="168" autoplay loop muted playsinline>
-            <source src="/videos/unrealsharp.mp4" type="video/mp4">
-        </video>
+        <video class="noclick" src="/projects/unrealsharp/videos/backdrop.mp4" type="video/mp4" preload="none" width="300" height="168" autoplay loop muted playsinline></video>
     </div>
     <div class="carousel-cell">
-        <video class="noclick" preload="none" width="300" height="168" autoplay loop muted playsinline>
-            <source src="/videos/chatredux.mp4" type="video/mp4">
-        </video>
+        <video class="noclick" src="/projects/chatredux/videos/backdrop.mp4" type="video/mp4" preload="none" width="300" height="168" autoplay loop muted playsinline></video>
     </div>
     <div class="carousel-cell">
-        <video class="noclick" preload="none" width="300" height="168" autoplay loop muted playsinline>
-            <source src="/videos/ignitionheadertool.mp4" type="video/mp4">
-        </video>
+        <video class="noclick" src="/projects/ignitionheadertool/videos/backdrop.mp4" type="video/mp4" preload="none" width="300" height="168" autoplay loop muted playsinline></video>
     </div>
     <div class="carousel-cell">
-        <video class="noclick" preload="none" width="300" height="168" autoplay loop muted playsinline>
-            <source src="/videos/blocks.mp4" type="video/mp4">
-        </video>
+        <video class="noclick" src="/projects/ignitionheadertool/videos/backdrop.mp4" type="video/mp4" preload="none" width="300" height="168" autoplay loop muted playsinline></video>
     </div>
 </div>
 </div>
@@ -221,10 +210,8 @@
     };
 
     const pause = (e) => {
-        console.log("pause");
         if (typeof e !== "undefined" && typeof e.target !== "undefined")
         {
-            console.log(e.target);
             let flickity = getFlickity(e.target);
             if (typeof flickity !== "undefined")
             {
@@ -234,7 +221,6 @@
     };
 
     const play = (e) => {
-        console.log("play");
         if (typeof e !== "undefined" && typeof e.target !== "undefined")
         {
             let flickity = getFlickity(e.target);
@@ -256,6 +242,7 @@
 
     const carousels = document.querySelectorAll(".carousel");
     carousels.forEach((carousel) => {
+
         let flickity = new Flickity(carousel, {
           autoPlay: false,
           prevNextButtons: true,
@@ -282,7 +269,7 @@
         flickity.on('dragEnd', () => {
             play();
         });
-    
+
         // Start Ticker
         window.requestAnimationFrame(() => update(flickity));
     });

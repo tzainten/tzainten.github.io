@@ -188,7 +188,7 @@ a {
 }
 
 a:hover {
-  transform: scale(1.15);
+  /* transform: scale(1.15); */
   background: linear-gradient(to left, #F7374F, #88304E);
   background-clip: text;
   -webkit-background-clip: text;
@@ -283,7 +283,7 @@ li a:hover {
 }
 
 .show-all:hover {
-  transform: scale(1.15);
+  /* transform: scale(1.15); */
 }
 .show-all:hover .show-all-text {
   background: linear-gradient(to left, #F7374F, #88304E);
