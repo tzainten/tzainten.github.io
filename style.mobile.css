@@ -62,7 +62,7 @@ body {
   font-family: "Radiance", sans-serif;
   background: linear-gradient(#282945, #1e1d25);
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   color: white;
   overflow-x: hidden;
 }
