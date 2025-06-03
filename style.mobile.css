@@ -146,6 +146,10 @@ body {
   font-size: 17px;
   line-height: 40px;
   letter-spacing: 4px;
+  background: linear-gradient(white, rgb(160, 160, 160));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .masthead {
