@@ -157,6 +157,14 @@ body {
   gap: 10px;
 }
 
+.fit-video {
+  width: 100%;
+}
+
+.noclick {
+  pointer-events: none;
+}
+
 h1 {
   font-size: 20px;
   text-align: center;
