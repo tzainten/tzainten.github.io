@@ -222,7 +222,7 @@ a:hover {
 }
 
 .spacer {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgb(75, 75, 75);
   min-height: 1px;
   width: 100%;
 }
