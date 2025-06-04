@@ -1,0 +1,191 @@
+let domReady = (cb) => {
+    document.readyState === 'interactive' || document.readyState === 'complete'
+        ? cb()
+        : document.addEventListener('DOMContentLoaded', cb);
+    };
+
+    domReady(() => {
+        document.body.style.visibility = 'visible';
+    });
+
+if (document.referrer.indexOf(window.location.hostname) > -1)
+{
+    let faders = document.querySelectorAll('.fade-me-in');
+    faders.forEach((elem) => {
+        elem.classList.remove('fade-me-in');
+        elem.style.opacity = 1;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    var videos = document.querySelectorAll('video');
+
+    videos.forEach(function(elem) {
+        if (!elem.classList.contains("noclick"))
+            return;
+
+        elem.controls = false;
+
+        elem.addEventListener('play', () => {
+            this.controls = false;
+        });
+
+        elem.addEventListener('pause', () => {
+            this.controls = false;
+        });
+    });
+});
+
+const faders = document.querySelectorAll(".fade-me-in");
+
+let i = 0;
+faders.forEach((elem) => {
+    let amount = 0.15;
+
+    if (elem.classList.contains("quick"))
+        amount *= 0.5;
+
+    let delay = i * amount;
+    i++;
+
+    elem.style.opacity = 0;
+    elem.style.transform = 'scale(1.1)';
+    
+    setTimeout(()=>{
+        elem.style.transition = `all 0.5s ease-out ${delay}s`;
+        elem.style.opacity = 1;
+        elem.style.transform = 'scale(1)';
+        elem.classList.remove("fade-me-in");
+    }, 500);
+});
+
+let tickerSpeed = 0.33;
+
+const update = (flickity) => {
+    if(!flickity) return;
+    if(flickity.isPaused) return;
+    if(!flickity.slides) return;
+    flickity.x = (flickity.x - flickity.tickerSpeed) % flickity.slideableWidth;
+    flickity.selectedIndex = flickity.dragEndRestingSelect();
+    flickity.updateSelectedSlide();
+    flickity.settle(flickity.x);
+    window.requestAnimationFrame(() => update(flickity));
+};
+
+const pause = (e) => {
+    if (typeof e !== "undefined" && typeof e.target !== "undefined")
+    {
+        let flickity = getFlickity(e.target);
+        if (typeof flickity !== "undefined")
+        {
+            flickity.isPaused = true;
+        }
+    }
+};
+
+const play = (e) => {
+    if (typeof e !== "undefined" && typeof e.target !== "undefined")
+    {
+        let flickity = getFlickity(e.target);
+        if (typeof flickity !== "undefined" && flickity.isPaused) {
+            flickity.isPaused = false;
+            window.requestAnimationFrame(() => update(flickity));
+        }
+    }
+};
+
+const getFlickity = (elem) => {
+    while (typeof elem !== "undefined")
+    {
+        if (typeof elem.flickityInstance !== "undefined")
+            return elem.flickityInstance;
+        elem = elem.parentElement;
+    }
+};
+
+const carousels = document.querySelectorAll(".carousel");
+carousels.forEach((carousel) => {
+
+    let flickity = new Flickity(carousel, {
+        autoPlay: false,
+        prevNextButtons: true,
+        pageDots: false,
+        draggable: true,
+        wrapAround: true,
+        selectedAttraction: 0.015,
+        friction: 0.25
+    });
+    flickity.x = 0;
+    flickity.isPaused = false;
+    flickity.tickerSpeed = tickerSpeed;
+    carousel.flickityInstance = flickity;
+
+    carousel.addEventListener('pointerover', pause, false);
+    carousel.addEventListener('pointerout', play, false);
+    carousel.addEventListener('pointerdown', pause, false);
+    carousel.addEventListener('pointerup', play, false);
+
+    flickity.on('dragStart', () => {
+        pause();
+    });
+
+    flickity.on('dragEnd', () => {
+        play();
+    });
+
+    // Start Ticker
+    window.requestAnimationFrame(() => update(flickity));
+});
+
+function getXP(date1, date2) {
+    const year1 = date1.getFullYear();
+    const year2 = date2.getFullYear();
+    return Math.abs(year1 - year2).toString() + " years";
+}
+
+function setXP(id, startDate)
+{
+    let element = document.querySelector(id);
+    if (element && typeof element !== "undefined")
+    {
+        element.innerHTML = getXP(now, startDate);
+    }
+}
+
+let now = new Date(Date.now());
+setXP("#lua-xp", new Date("2013-01-01"));
+setXP("#gm-xp", new Date("2015-01-01"));
+setXP("#git-xp", new Date("2019-01-01"));
+setXP("#cs-xp", new Date("2019-01-01"));
+setXP("#unity-xp", new Date("2020-01-01"));
+setXP("#cpp-xp", new Date("2021-01-01"));
+setXP("#ue-xp", new Date("2021-01-01"));
+setXP("#sbox-xp", new Date("2023-01-01"));
+
+let age = document.querySelector("#age");
+if (age && typeof age !== "undefined")
+{
+    age.innerHTML = getXP(now, new Date("2003-03-23")) + " old";
+}
+
+function updateTime()
+{
+    let time = document.querySelector("#timeZone");
+    if (time)
+    {
+        const date = new Date();
+        const formatter = new Intl.DateTimeFormat('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true,
+            timeZone: 'America/New_York',
+            timeZoneName: "short"
+        });
+        time.innerHTML = formatter.format(date);
+    }
+}
+updateTime();
+
+setInterval(() => {
+    updateTime();
+}, 1000);

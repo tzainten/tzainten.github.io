@@ -116,14 +116,23 @@ body {
   gap: 16px;
 }
 
+.project-summary {
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  text-align: center;
+}
+
 .project-info {
+  display: flex;
+  flex-direction: row;
   box-sizing: border-box;
   padding-left: 5px; padding-right: 5px;
 }
 
 .project-info-slot {
   display: flex;
-  flex-direction: row;
+  width: 100%;
 }
 
 .project-info-right {
@@ -143,6 +152,12 @@ body {
   gap: 16px;
 }
 
+.round-video {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
 h1 {
   line-height: 0;
 }
@@ -159,14 +174,15 @@ h1 {
   flex-direction: row;
   align-items: center;
   gap: 5px;
-  font-size: 10px;
-  font-weight: bold;
+  font-size: 12px;
   margin-bottom: 10px;
+  pointer-events: none;
 }
 
 .breadcrumbs a {
   font-size: 15px;
   font-weight: normal;
+  pointer-events: all;
 }
 
 .breadcrumbs p {
@@ -205,7 +221,23 @@ a:hover {
   -webkit-text-fill-color: transparent;
 }
 
+.location {
+  position: absolute; 
+  display: flex; 
+  flex-direction: column; 
+  right: 0px; 
+  top: 0px;
+}
+
+.time {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: flex-end; 
+  gap: 10px;
+}
+
 .masthead {
+  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
@@ -261,7 +293,7 @@ li a:hover {
 }
 
 .username {
-  background: -webkit-linear-gradient(#ffffff, #226f92);
+  background: linear-gradient(to right, #5459AC, #648DB3);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

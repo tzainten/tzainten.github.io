@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" media="screen and (max-width: 600px)" href="/style.mobile.min.css" />
     <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
 
+    <script src="/jasdofUFGjas.js"></script>
     <script src="/lib/flickity/flickity.pkgd.min.js"></script>
 
     <meta name="description" content="A small program that automatically blanks out empty monitor screens.">
@@ -21,6 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="tzainten.github.io">
 </head>
+
 <body style="visibility: hidden;">
 <div class="body-container">
 <div class="page-container">
@@ -40,17 +43,31 @@
             </a>
         </div>
     </div>
+    <div class="location">
+        <div style="display: flex; align-items: center; flex-direction: row; gap: 10px;">
+            <img src="/images/usa.png" height="32" />
+            <p style="white-space: nowrap;">United States</p>
+        </div>
+        <div class="time">
+            <p id="timeZone" style="white-space: nowrap;"></p>
+        </div>
+    </div>
 </div>
 
 <div class="fade-me-in quick spacer"></div>
+
+<div class="fade-me-in" style="display: flex; flex-direction: column;">
+
 <div class="fade-me-in" style="display: flex; flex-direction: column;">
 <div class="breadcrumbs">
     <a href="/">Home</a>
-    >
-    <a href="/projects">Projects</a>
-    >
-    <p>WindowSense</p>
+	/
+	<a href="/projects/">Projects</a>
+	/
+	<p>WindowSense</p>
 </div>
+</div>
+
 <div class="project-banner">
     <video class="fit-video noclick" preload="none" autoplay loop muted playsinline>
         <source src="videos/backdrop.mp4" type="video/mp4">
@@ -61,31 +78,51 @@
 <div class="project-container">
     <div class="project-text">
         <div class="fade-me-in">
-            <div style="display: flex; flex-direction: row; align-items: center;">
-                <span class="title" style="white-space: nowrap; width: fit-content; margin-right: 10px;">DEVELOPMENT INFO</span>
-                <div class="spacer"></div>
-            </div>
-            <div class="project-info">
-                <div class="project-info-slot">
-                    <p style="width: 100%">Role: <span style="color: rgba(255, 255, 255, 0.6);">Sole Developer</span></p>
-                    <p class="project-info-right" style="width: 100%;">Development Time: <span style="color: rgba(255, 255, 255, 0.6);">1 week<br><span style="font-size: 14px">(~2 months of occasional bug fixing)</span></span></p>
-                </div>
-                <div class="project-info-slot" style="margin-top: 5px;">
-                    <p style="width: 100%">Tools: <span style="color: rgba(255, 255, 255, 0.6);">C++, Windows API</span></p>
-                    <p class="project-info-right" style="width: 100%;">Source: <a href="https://github.com/tzainten/WindowSense">GitHub</a></p>
-                </div>
-            </div>
-        </div>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <span class="title" style="white-space: nowrap; width: fit-content; margin-right: 10px;">DEVELOPMENT INFO</span>
+        <div class="spacer"></div>
+    </div>
+    <div class="project-info">
+        
+                        <div class="project-info-slot">
+                            <p style="width: 100%">Role: <span style="color: rgba(255, 255, 255, 0.6);">Sole Developer</span></p>
+                        </div>
+                    
+        
+                    <div class="project-info-slot">
+                        <p class="project-info-right" style="width: 100%;">Development Time: <span style="color: rgba(255, 255, 255, 0.6);">1 week</span><span style="font-size: 14px; color: rgba(255, 255, 255, 0.6);"><br>(~2 months occasional bug fixing)</span></p>
+                    </div>
+                
+    </div>
+    <div class="project-info">
+        
+                        <div class="project-info-slot">
+                            <p style="width: 100%">Tools: <span style="color: rgba(255, 255, 255, 0.6);">C++, Windows API, Git</span></p>
+                        </div>
+                    
+        
+                        <div class="project-info-slot">
+                            <p class="project-info-right" style="width: 100%;">Source: <a href="https://github.com/tzainten/windowsense">GitHub</a>
+</p>
+                        </div>
+                    
+    </div>
+</div>
         
         <div class="fade-me-in">
             <div style="display: flex; flex-direction: row; align-items: center;">
                 <span class="title" style="white-space: nowrap; width: fit-content; margin-right: 10px;">DESCRIPTION</span>
                 <div class="spacer"></div>
             </div>
-            <p style="padding: 5px">I made this program because I found myself putting things like YouTube on my extra monitors just because they were empty. I felt like I was making up excuses just to have content constantly displaying.</p>
-            <p style="padding: 5px">So, I made a program that compliments <a href="https://multiscreenblank.nookkin.com/">MultiscreenBlank</a>. Any monitor that doesn't contain any windows on it will be blanked out <i>automatically</i>.</p>
-            <p style="padding: 5px">Most of the program was finished in the first week of development, and after that I have been fixing small bugs that come up through my own personal experience with the software.</p>
-            <p style="padding: 5px">I still use this software every day, and I'm extremely thankful to my past self for making it!</p>
+
+            <p class="project-summary">A small program that automatically blanks out empty monitor screens.</p>
+            <div style="display: flex; flex-direction: column; gap: 20px; padding: 5px">
+                <p>I made this program because I found myself putting things like YouTube on my extra monitors just because they were empty. I felt like I was making up excuses just to have content constantly displaying.</p>
+<p>So, I made a program that compliments <a href="https://multiscreenblank.nookkin.com/">MultiscreenBlank</a>. Any monitor that doesn&#39;t contain any windows on it will be blanked out <i>automatically</i>.</p>
+<p>Most of the program was finished in the first week of development, and after that I have been fixing small bugs that come up through my own personal experience with the software.</p>
+<p>I still use this software every day, and I&#39;m extremely thankful to my past self for making it!</p>
+
+            </div>
         </div>
     </div>
 
@@ -95,74 +132,14 @@
         </div>
     </div>
 </div>
-</div>
 
 </div>
+
+</div>
 </div>
 
-<script>
-    if (document.referrer.indexOf(window.location.hostname) > -1)
-    {
-        let faders = document.querySelectorAll('.fade-me-in');
-        faders.forEach((elem) => {
-            elem.classList.remove('fade-me-in');
-            elem.style.opacity = 1;
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        var videos = document.querySelectorAll('video');
-
-        videos.forEach(function(elem) {
-            if (!elem.classList.contains("noclick"))
-                return;
-
-            elem.controls = false;
-
-            elem.addEventListener('play', () => {
-                this.controls = false;
-            });
-
-            elem.addEventListener('pause', () => {
-                this.controls = false;
-            });
-        });
-    });
-
-    const faders = document.querySelectorAll(".fade-me-in");
-
-    let i = 0;
-    faders.forEach((elem) => {
-        let amount = 0.15;
-
-        if (elem.classList.contains("quick"))
-            amount *= 0.5;
-
-        let delay = i * amount;
-        i++;
-
-        elem.style.opacity = 0;
-        elem.style.transform = 'scale(1.1)';
-        
-        setTimeout(()=>{
-            elem.style.opacity = 1;
-            elem.style.transition = `all 0.5s ease-out ${delay}s`;
-            elem.style.transform = 'scale(1)';
-            elem.classList.remove("fade-me-in");
-        }, 0);
-    });
-
-    let domReady = (cb) => {
-    document.readyState === 'interactive' || document.readyState === 'complete'
-        ? cb()
-        : document.addEventListener('DOMContentLoaded', cb);
-    };
-
-    domReady(() => {
-        document.body.style.visibility = 'visible';
-    });
-</script>
-
+<script src="/script.js"></script>
 <noscript><style>body { visibility: visible; }</style></noscript>
+
 </body>
 </html>

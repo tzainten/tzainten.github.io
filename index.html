@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +11,8 @@
     <link rel="stylesheet" media="screen and (max-width: 600px)" href="/style.mobile.min.css" />
     <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
 
+    <script src="/jasdofUFGjas.js"></script>
     <script src="/lib/flickity/flickity.pkgd.min.js"></script>
-    <script src="/top_projects.js"></script>
 
     <meta name="description" content="I am driven by a passion of taking a problem and making it go away with code.">
 
@@ -22,19 +23,8 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="tzainten.github.io">
 </head>
+
 <body style="visibility: hidden;">
-<script>
-    let domReady = (cb) => {
-    document.readyState === 'interactive' || document.readyState === 'complete'
-        ? cb()
-        : document.addEventListener('DOMContentLoaded', cb);
-    };
-
-    domReady(() => {
-        document.body.style.visibility = 'visible';
-    });
-</script>
-
 <div class="body-container">
 <div class="page-container">
 
@@ -51,6 +41,15 @@
             <a href="https://steamcommunity.com/id/tzainten" class="social-button"> 
                 <img src="/images/steam.png" width="32" height="32">
             </a>
+        </div>
+    </div>
+    <div class="location">
+        <div style="display: flex; align-items: center; flex-direction: row; gap: 10px;">
+            <img src="/images/usa.png" height="32" />
+            <p style="white-space: nowrap;">United States</p>
+        </div>
+        <div class="time">
+            <p id="timeZone" style="white-space: nowrap;"></p>
         </div>
     </div>
 </div>
@@ -86,7 +85,12 @@
         <video class="noclick" src="/projects/ignitionheadertool/videos/backdrop.mp4" type="video/mp4" preload="none" width="300" height="168" autoplay loop muted playsinline></video>
     </div>
     <div class="carousel-cell">
-        <video class="noclick" src="/projects/ignitionheadertool/videos/backdrop.mp4" type="video/mp4" preload="none" width="300" height="168" autoplay loop muted playsinline></video>
+        <div class="backdrop">
+            <a href="/projects/blocks/">
+                <img class="logo" src="/projects/blocks/images/logo.png">
+            </a>
+        </div>
+        <video class="noclick" src="/projects/blocks/videos/backdrop.mp4" type="video/mp4" preload="none" width="300" height="168" autoplay loop muted playsinline></video>
     </div>
 </div>
 </div>
@@ -109,6 +113,12 @@
             <img class="social-button" style="margin-right: 10px" src="/images/gm.png" width="32" height="32">
         </a>
         <p>I have over <span id="gm-xp" style="color: gold;">10 years</span> of experience with GameMaker.</p>
+    </div>
+    <div class="fade-me-in" style="display: flex; flex-direction: row; align-items: center;">
+        <a href="https://git-scm.com/">
+            <img class="social-button" style="margin-right: 10px" src="/images/git.png" width="32" height="32">
+        </a>
+        <p>I have over <span id="git-xp" style="color: gold;">6 years</span> of experience with Git.</p>
     </div>
     <div class="fade-me-in" style="display: flex; flex-direction: row; align-items: center;">
         <a href="https://learn.microsoft.com/en-us/dotnet/csharp/">
@@ -143,168 +153,19 @@
 </div>
 </div>
 
+<div class="fade-me-in">
+<div style="display: flex; flex-direction: row; align-items: center;">
+<span class="title">CONTACT ME</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px;">
+    <p style="margin-bottom: 15px;"><a><script>BXVbxUGYgJobPcE();</script></a><span style="color: rgb(160, 160, 160); font-size: 13px; margin-left: 15px;">(Just replace contact with my username)</span></p>
+</div>
+</div>
 </div>
 </div>
 
-<script>
-    if (document.referrer.indexOf(window.location.hostname) > -1)
-    {
-        let faders = document.querySelectorAll('.fade-me-in');
-        faders.forEach((elem) => {
-            elem.classList.remove('fade-me-in');
-            elem.style.opacity = 1;
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        var videos = document.querySelectorAll('video');
-
-        videos.forEach(function(elem) {
-            elem.controls = false;
-
-            elem.addEventListener('play', () => {
-                this.controls = false;
-            });
-
-            elem.addEventListener('pause', () => {
-                this.controls = false;
-            });
-        });
-    });
-
-    const faders = document.querySelectorAll(".fade-me-in");
-
-    let i = 0;
-    faders.forEach((elem) => {
-        let amount = 0.15;
-
-        if (elem.classList.contains("quick"))
-            amount *= 0.5;
-
-        let delay = i * amount;
-        i++;
-
-        elem.style.opacity = 0;
-        elem.style.transition = `all 0.5s ease-out ${delay}s`;
-        elem.style.setProperty("-webkit-transition", `all 0.5s ease-out ${delay}s`);
-        elem.style.transform = 'scale(1.1)';
-        
-        setTimeout(()=>{
-            elem.style.opacity = 1;
-            elem.style.transform = 'scale(1)';
-            elem.classList.remove("fade-me-in");
-        }, 500);
-    });
-
-    let tickerSpeed = 0.33;
-
-    const update = (flickity) => {
-        if(!flickity) return;
-        if(flickity.isPaused) return;
-        if(!flickity.slides) return;
-        flickity.x = (flickity.x - flickity.tickerSpeed) % flickity.slideableWidth;
-        flickity.selectedIndex = flickity.dragEndRestingSelect();
-        flickity.updateSelectedSlide();
-        flickity.settle(flickity.x);
-        window.requestAnimationFrame(() => update(flickity));
-    };
-
-    const pause = (e) => {
-        if (typeof e !== "undefined" && typeof e.target !== "undefined")
-        {
-            let flickity = getFlickity(e.target);
-            if (typeof flickity !== "undefined")
-            {
-                flickity.isPaused = true;
-            }
-        }
-    };
-
-    const play = (e) => {
-        if (typeof e !== "undefined" && typeof e.target !== "undefined")
-        {
-            let flickity = getFlickity(e.target);
-            if (typeof flickity !== "undefined" && flickity.isPaused) {
-                flickity.isPaused = false;
-                window.requestAnimationFrame(() => update(flickity));
-            }
-        }
-    };
-
-    const getFlickity = (elem) => {
-        while (typeof elem !== "undefined")
-        {
-            if (typeof elem.flickityInstance !== "undefined")
-                return elem.flickityInstance;
-            elem = elem.parentElement;
-        }
-    };
-
-    const carousels = document.querySelectorAll(".carousel");
-    carousels.forEach((carousel) => {
-
-        let flickity = new Flickity(carousel, {
-          autoPlay: false,
-          prevNextButtons: true,
-          pageDots: false,
-          draggable: true,
-          wrapAround: true,
-          selectedAttraction: 0.015,
-          friction: 0.25
-        });
-        flickity.x = 0;
-        flickity.isPaused = false;
-        flickity.tickerSpeed = tickerSpeed;
-        carousel.flickityInstance = flickity;
-
-        carousel.addEventListener('pointerover', pause, false);
-        carousel.addEventListener('pointerout', play, false);
-        carousel.addEventListener('pointerdown', pause, false);
-        carousel.addEventListener('pointerup', play, false);
-
-        flickity.on('dragStart', () => {
-            pause();
-        });
-
-        flickity.on('dragEnd', () => {
-            play();
-        });
-
-        // Start Ticker
-        window.requestAnimationFrame(() => update(flickity));
-    });
-
-    function getXP(date1, date2) {
-        const year1 = date1.getFullYear();
-        const year2 = date2.getFullYear();
-        return Math.abs(year1 - year2).toString() + " years";
-    }
-
-    function setXP(id, startDate)
-    {
-        let element = document.querySelector(id);
-        if (typeof element !== "undefined")
-        {
-            element.innerHTML = getXP(now, startDate);
-        }
-    }
-
-    let now = new Date(Date.now());
-    setXP("#lua-xp", new Date("2013-01-01"));
-    setXP("#gm-xp", new Date("2015-01-01"));
-    setXP("#cs-xp", new Date("2019-01-01"));
-    setXP("#unity-xp", new Date("2020-01-01"));
-    setXP("#cpp-xp", new Date("2021-01-01"));
-    setXP("#ue-xp", new Date("2021-01-01"));
-    setXP("#sbox-xp", new Date("2023-01-01"));
-
-    let age = document.querySelector("#age");
-    if (typeof age !== "undefined")
-    {
-        age.innerHTML = getXP(now, new Date("2003-03-23")) + " old";
-    }
-</script>
-
+<script src="/script.js"></script>
 <noscript><style>body { visibility: visible; }</style></noscript>
+
 </body>
 </html>

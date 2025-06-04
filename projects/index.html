@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tzainten - Projects</title>
+    <title>tzainten - {title}</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" media="screen and (min-width: 601px)" href="/style.desktop.min.css" />
     <link rel="stylesheet" media="screen and (max-width: 600px)" href="/style.mobile.min.css" />
     <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
 
+    <script src="/jasdofUFGjas.js"></script>
     <script src="/lib/flickity/flickity.pkgd.min.js"></script>
 
-    <meta name="description" content="I am driven by a passion of taking a problem and making it go away with code.">
+    <meta name="description" content="{description}">
 
-    <meta property="og:title" content="tzainten - I like coding.">
-    <meta property="og:description" content="I am driven by a passion of taking a problem and making it go away with code.">
+    <meta property="og:title" content="tzainten - {title}">
+    <meta property="og:description" content="{description}">
     <meta property="og:image" content="https://tzainten.github.io/images/avatar.jpg">
     <meta property="og:url" content="https://tzainten.github.io/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="tzainten.github.io">
 </head>
+
 <body style="visibility: hidden;">
 <div class="body-container">
 <div class="page-container">
@@ -40,83 +43,32 @@
             </a>
         </div>
     </div>
+    <div class="location">
+        <div style="display: flex; align-items: center; flex-direction: row; gap: 10px;">
+            <img src="/images/usa.png" height="32" />
+            <p style="white-space: nowrap;">United States</p>
+        </div>
+        <div class="time">
+            <p id="timeZone" style="white-space: nowrap;"></p>
+        </div>
+    </div>
 </div>
 
 <div class="fade-me-in quick spacer"></div>
+
 <div class="fade-me-in" style="display: flex; flex-direction: column;">
 <div class="breadcrumbs">
     <a href="/">Home</a>
-    >
-    <p>Projects</p>
+	/
+	<p>Projects</p>
 </div>
 </div>
 
 </div>
 </div>
 
-<script>
-    if (document.referrer.indexOf(window.location.hostname) > -1)
-    {
-        let faders = document.querySelectorAll('.fade-me-in');
-        faders.forEach((elem) => {
-            elem.classList.remove('fade-me-in');
-            elem.style.opacity = 1;
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        var videos = document.querySelectorAll('video');
-
-        videos.forEach(function(elem) {
-            if (!elem.classList.contains("noclick"))
-                return;
-
-            elem.controls = false;
-
-            elem.addEventListener('play', () => {
-                this.controls = false;
-            });
-
-            elem.addEventListener('pause', () => {
-                this.controls = false;
-            });
-        });
-    });
-
-    const faders = document.querySelectorAll(".fade-me-in");
-
-    let i = 0;
-    faders.forEach((elem) => {
-        let amount = 0.15;
-
-        if (elem.classList.contains("quick"))
-            amount *= 0.5;
-
-        let delay = i * amount;
-        i++;
-
-        elem.style.opacity = 0;
-        elem.style.transform = 'scale(1.1)';
-        
-        setTimeout(()=>{
-            elem.style.opacity = 1;
-            elem.style.transition = `all 0.5s ease-out ${delay}s`;
-            elem.style.transform = 'scale(1)';
-            elem.classList.remove("fade-me-in");
-        }, 0);
-    });
-
-    let domReady = (cb) => {
-    document.readyState === 'interactive' || document.readyState === 'complete'
-        ? cb()
-        : document.addEventListener('DOMContentLoaded', cb);
-    };
-
-    domReady(() => {
-        document.body.style.visibility = 'visible';
-    });
-</script>
-
+<script src="/script.js"></script>
 <noscript><style>body { visibility: visible; }</style></noscript>
+
 </body>
 </html>

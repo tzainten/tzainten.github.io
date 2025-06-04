@@ -112,6 +112,13 @@ body {
   gap: 16px;
 }
 
+.project-summary {
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  text-align: center;
+}
+
 .project-info {
   box-sizing: border-box;
   display: flex;
@@ -162,6 +169,21 @@ body {
   gap: 10px;
 }
 
+.location {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+  right: 0px; 
+  top: 0px;
+}
+
+.time {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center; 
+  gap: 10px;
+}
+
 .fit-video {
   width: 100%;
 }
@@ -180,8 +202,7 @@ h1 {
   flex-direction: row;
   align-items: center;
   gap: 5px;
-  font-size: 10px;
-  font-weight: bold;
+  font-size: 12px;
 }
 
 .breadcrumbs a {
@@ -208,7 +229,6 @@ a {
 }
 
 a:hover {
-  transform: scale(1.15);
   background: linear-gradient(to left, #F7374F, #88304E);
   background-clip: text;
   -webkit-background-clip: text;
@@ -256,7 +276,7 @@ li a:hover {
 }
 
 .username {
-  background: -webkit-linear-gradient(#ffffff, #226f92);
+  background: linear-gradient(to right, #5459AC, #648DB3);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -275,14 +295,6 @@ li a:hover {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.show-all:hover {
-  transform: scale(1.15);
-}
-
-.show-all:not(:active){
-  transform: scale(1);
 }
 
 .show-all:hover .show-all-text {
