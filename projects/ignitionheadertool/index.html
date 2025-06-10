@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tzainten - IgnitionHeaderTool</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/lib/vs2015.min.css">
+    <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
+    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=243895459398022802238410962106792035227206193655421473" />
+    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=243895459398022802238410962106792035227206193655421473" />
+
+    <script src="/jasdofUFGjas.js" ></script>
+    <script src="/lib/flickity/flickity.pkgd.min.js" ></script>
+
+    <meta name="description" content="A tool built for Unreal Engine 5 that implements a custom Event Function Specifier">
+
+    <meta property="og:title" content="tzainten - IgnitionHeaderTool">
+    <meta property="og:description" content="A tool built for Unreal Engine 5 that implements a custom Event Function Specifier">
+    <meta property="og:image" content="https://tzainten.github.io/images/avatar.jpg">
+    <meta property="og:url" content="https://tzainten.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="tzainten.github.io">
+</head>
+
+<body style="visibility: hidden;">
+<div class="body-container">
+<div class="page-container">
+
+<div class="masthead fade-me-in">
+    <img class="avatar" src="/images/avatar.jpg">
+    <div class="card-container">
+        <div>
+            <h1>Hi, I'm <span class="username">tzainten</span>. I like coding.</h1>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/tzainten/" class="social-button">
+                <img src="/images/github.png" width="32" height="32">
+            </a>
+            <a href="https://steamcommunity.com/id/tzainten" class="social-button"> 
+                <img src="/images/steam.png" width="32" height="32">
+            </a>
+            <a href="https://discord.com/users/608055742473175040" class="social-button"> 
+                <img src="/images/discord.png" width="32" height="32">
+            </a>
+        </div>
+    </div>
+    <div class="location">
+        <div style="display: flex; align-items: center; flex-direction: row; gap: 10px;">
+            <img src="/images/usa.png" height="32" />
+            <p style="white-space: nowrap;">United States</p>
+        </div>
+        <div class="time">
+            <p id="timeZone" style="white-space: nowrap;"></p>
+        </div>
+    </div>
+</div>
+
+<div class="fade-me-in quick spacer"></div>
+
+<div class="fade-me-in" style="display: flex; flex-direction: column;">
+
+<div class="fade-me-in" style="display: flex; flex-direction: column;">
+<div class="breadcrumbs">
+    <a href="/">Home</a>
+	/
+	<a href="/projects/">Projects</a>
+	/
+	<p>IgnitionHeaderTool</p>
+</div>
+</div>
+
+<div class="project-banner">
+    <video class="fit-video noclick" preload="none" autoplay loop muted playsinline>
+        <source src="videos/backdrop.mp4" type="video/mp4">
+    </video>
+    <div class="backdrop"></div>
+    <img style="position: absolute; width: 100%;" src="images/logowide.png" alt="">
+</div>
+<div class="project-container">
+    <div class="project-text">
+        <div class="fade-me-in">
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <span class="title" style="white-space: nowrap; width: fit-content; margin-right: 10px;">DEVELOPMENT INFO</span>
+        <div class="spacer"></div>
+    </div>
+    <div class="project-info">
+        
+                        <div class="project-info-slot">
+                            <p style="width: 100%">Role: <span style="color: rgba(255, 255, 255, 0.6);">Sole Developer</span></p>
+                        </div>
+                    
+        
+                        <div class="project-info-slot">
+                            <p class="project-info-right" style="width: 100%;">Development Time: <span style="color: rgba(255, 255, 255, 0.6);">2 weeks</span></p>
+                        </div>
+                    
+    </div>
+    <div class="project-info">
+        
+                        <div class="project-info-slot">
+                            <p style="width: 100%">Tools: <span style="color: rgba(255, 255, 255, 0.6);">C#, Git</span></p>
+                        </div>
+                    
+        
+                        <div class="project-info-slot">
+                            <p class="project-info-right" style="width: 100%;">Source: <a href="https://github.com/tzainten/IgnitionHeaderTool/tree/legacy">Legacy</a>, <a href="https://github.com/tzainten/IgnitionHeaderTool">Main</a>
+</p>
+                        </div>
+                    
+    </div>
+</div>
+        
+        <div class="fade-me-in">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+                <span class="title" style="white-space: nowrap; width: fit-content; margin-right: 10px;">DESCRIPTION</span>
+                <div class="spacer"></div>
+            </div>
+
+            <p class="project-summary">A tool built for Unreal Engine 5 that implements a custom Event Function Specifier</p>
+            <div class="project-body">
+                <h3>The Goal</h3>
+<p>While I was using Unreal Engine 5, I felt disappointed to learn there isn&#39;t a UFUNCTION Event System built-in.</p>
+<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/multicast-delegates-in-unreal-engine">Multi-cast Delegates</a> do exist, but they&#39;re a bit more maintenance than what I ended up making.</p>
+<pre><code class="hljs language-c++"><span class="hljs-built_in">UCLASS</span>()
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ASuperActor</span> : <span class="hljs-keyword">public</span> AActor
+{
+    <span class="hljs-built_in">GENERATED_BODY</span>();
+
+    <span class="hljs-comment">// Subscribe to this event</span>
+    <span class="hljs-built_in">UFUNCTION</span>(Event = <span class="hljs-string">&quot;MySuperCoolEvent&quot;</span>)
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SuperDuperAwesome</span><span class="hljs-params">()</span></span>;
+}
+</code></pre><pre><code class="hljs language-c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SomeAmazingFunction</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// Broadcast this event to all listeners</span>
+    <span class="hljs-built_in">EVENT_RUN</span>(<span class="hljs-string">&quot;MySuperCoolEvent&quot;</span>);
+}
+</code></pre><h3>The Pain</h3>
+<p>For the first version, I wrote a parser myself. It was an interesting problem to solve, and I&#39;m glad I did it; though it was pretty painful to get working.</p>
+<p>The problem with this approach is that I had to be able to parse Unreal Engine&#39;s API as well. I thought to myself: why can&#39;t I just extend Unreal Engine&#39;s parser?</p>
+<h3>UnrealHeaderTool</h3>
+<p>I learned that Unreal Engine uses something called <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unrealheadertool?application_version=4.27">UnrealHeaderTool</a> to parse your C++ header files.</p>
+<p>This seemed like exactly what I wanted, and eventually I was able to find an article detailing how to <a href="https://unrealist.org/uht-plugins/">Extend the Unreal Header Tool with Plugins.</a></p>
+<h3>Custom Properties</h3>
+<p>In C++, Unreal Engine provides you with types such as:</p>
+<ul>
+<li>uint64</li>
+<li>int64</li>
+<li>int8</li>
+</ul>
+<p>I think this is a much better way to represent how big your data types are, but they don&#39;t provide this kind of convention for floats. Turns out you can extend this with UHT as well!</p>
+<pre><code class="hljs language-cs">[<span class="hljs-meta">UnrealHeaderTool</span>]
+[<span class="hljs-meta">UhtEngineClass( Name = <span class="hljs-string">&quot;Float32Property&quot;</span>, IsProperty = true )</span>]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">UhtFloat32Property</span> : <span class="hljs-title">UhtNumericProperty</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-built_in">string</span> EngineClassName =&gt; <span class="hljs-string">&quot;FloatProperty&quot;</span>;
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-built_in">string</span> CppTypeText =&gt; <span class="hljs-string">&quot;float32&quot;</span>;
+
+    <span class="hljs-comment">// ...culled for the sake of brevity...</span>
+}
+
+[<span class="hljs-meta">UnrealHeaderTool</span>]
+[<span class="hljs-meta">UhtEngineClass( Name = <span class="hljs-string">&quot;Float64Property&quot;</span>, IsProperty = true )</span>]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">UhtFloat32Property</span> : <span class="hljs-title">UhtNumericProperty</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-built_in">string</span> EngineClassName =&gt; <span class="hljs-string">&quot;DoubleProperty&quot;</span>;
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-built_in">string</span> CppTypeText =&gt; <span class="hljs-string">&quot;float64&quot;</span>;
+
+    <span class="hljs-comment">// ...culled for the sake of brevity...</span>
+}
+</code></pre><p>This adds UFUNCTION support for the types:</p>
+<ul>
+<li>float32</li>
+<li>float64</li>
+</ul>
+<h3>Custom Function Specifiers</h3>
+<p>Unreal Engine has a list of <a href="https://unreal-garden.com/docs/ufunction/">Function Specifiers</a> you can use by default. Appending your own is really simple:</p>
+<pre><code class="hljs language-cs">[<span class="hljs-meta">UhtSpecifier( Extends = UhtTableNames.Function,
+               ValueType = UhtSpecifierValueType.String,
+               When = UhtSpecifierWhen.Immediate )</span>]
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">EventSpecifier</span>(<span class="hljs-params"> UhtSpecifierContext specifierContext, StringView <span class="hljs-keyword">value</span> </span>)</span>
+{
+    UhtFunction function = (UhtFunction)specifierContext.Type;
+
+    EFunctionFlags flag = (EFunctionFlags)<span class="hljs-number">0x00000010</span>; <span class="hljs-comment">// Internally unused function flag</span>
+    function.FunctionFlags |= flag;
+}
+</code></pre><p>Keep in mind, there was only one unused function flag at the time of making this. If this hasn&#39;t changed, then that means you can only have 1 custom function specifier!</p>
+<h3>The Final Result</h3>
+<p>After reverse-engineering the generated code that UnrealHeaderTool spits out, I was able to add functionality to my custom Function Specifier.</p>
+<p>I basically step in after UHT generates code, and then inject my own code afterwards. This works really well, but it&#39;s not as clean as I&#39;d like it to be.</p>
+<h3>Function Parameter Support</h3>
+<p>I did add partial support for this. However, it is a very poor implementation. I stopped using Unreal Engine shortly after s&amp;box started maturing.</p>
+<p>Going back in and finishing up this feature could be a fun weekend project though. We&#39;ll see!</p>
+<h3>Summary</h3>
+<p>UnrealHeaderTool is really powerful! It was a blast experimenting with it to see what I could do.</p>
+<p>It&#39;s really unfortunate that a lot of the C++ API is poorly documented. I felt like I was uncovering an ancient scroll when I discovered you can extend UnrealHeaderTool.</p>
+<p>But it seems to be getting better. Epic Games seems to be starting to take their documentation much more seriously.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="project-media fade-me-in">
+        
+    </div>
+    
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+
+
+<script src="/lib/instantpage.min.js" type="module"></script>
+
+<noscript><style>body { visibility: visible; }</style></noscript>
+<script src="/script.js?v=243895459"></script>
+
+<style>
+    .flickity-button {
+        background: linear-gradient(to right, #767BBD, #86A6C4);
+        color: white;
+    }
+
+    .flickity-button:hover, .flickity-button:active {
+        background: linear-gradient(to left, #F7374F, #88304E);
+    }
+</style>
+
+</body>
+</html>

@@ -7,12 +7,13 @@
     <title>tzainten - WindowSense</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" media="screen and (min-width: 601px)" href="/style.desktop.min.css" />
-    <link rel="stylesheet" media="screen and (max-width: 600px)" href="/style.mobile.min.css" />
+    <link rel="stylesheet" href="/lib/vs2015.min.css">
     <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
+    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=7901821681186813715525318259885314570268980830269708" />
+    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=7901821681186813715525318259885314570268980830269708" />
 
-    <script src="/jasdofUFGjas.js"></script>
-    <script src="/lib/flickity/flickity.pkgd.min.js"></script>
+    <script src="/jasdofUFGjas.js" ></script>
+    <script src="/lib/flickity/flickity.pkgd.min.js" ></script>
 
     <meta name="description" content="A small program that automatically blanks out empty monitor screens.">
 
@@ -40,6 +41,9 @@
             </a>
             <a href="https://steamcommunity.com/id/tzainten" class="social-button"> 
                 <img src="/images/steam.png" width="32" height="32">
+            </a>
+            <a href="https://discord.com/users/608055742473175040" class="social-button"> 
+                <img src="/images/discord.png" width="32" height="32">
             </a>
         </div>
     </div>
@@ -73,7 +77,7 @@
         <source src="videos/backdrop.mp4" type="video/mp4">
     </video>
     <div class="backdrop"></div>
-    <img style="position: absolute; width: 100%;" src="images/logo.png">
+    <img style="position: absolute; width: 100%;" src="images/logowide.png" alt="">
 </div>
 <div class="project-container">
     <div class="project-text">
@@ -89,10 +93,10 @@
                         </div>
                     
         
-                    <div class="project-info-slot">
-                        <p class="project-info-right" style="width: 100%;">Development Time: <span style="color: rgba(255, 255, 255, 0.6);">1 week</span><span style="font-size: 14px; color: rgba(255, 255, 255, 0.6);"><br>(~2 months occasional bug fixing)</span></p>
-                    </div>
-                
+                        <div class="project-info-slot">
+                            <p class="project-info-right" style="width: 100%;">Development Time: <span style="color: rgba(255, 255, 255, 0.6);">1 week</span><span style="font-size: 14px; color: rgba(255, 255, 255, 0.6);"><br>(~2 months occasional bug fixing)</span></p>
+                        </div>
+                    
     </div>
     <div class="project-info">
         
@@ -116,20 +120,36 @@
             </div>
 
             <p class="project-summary">A small program that automatically blanks out empty monitor screens.</p>
-            <div style="display: flex; flex-direction: column; gap: 20px; padding: 5px">
-                <p>I made this program because I found myself putting things like YouTube on my extra monitors just because they were empty. I felt like I was making up excuses just to have content constantly displaying.</p>
-<p>So, I made a program that compliments <a href="https://multiscreenblank.nookkin.com/">MultiscreenBlank</a>. Any monitor that doesn&#39;t contain any windows on it will be blanked out <i>automatically</i>.</p>
-<p>Most of the program was finished in the first week of development, and after that I have been fixing small bugs that come up through my own personal experience with the software.</p>
-<p>I still use this software every day, and I&#39;m extremely thankful to my past self for making it!</p>
+            <div class="project-body">
+                <h3>The Goal</h3>
+<p>I made this program because I found myself putting things like YouTube on my extra monitors just because they were empty. </p>
+<p>I felt like I was making up excuses to make &quot;full use&quot; of my monitors that I paid for.</p>
+<h3>How I Made It</h3>
+<p>There&#39;s a really neat program called <a href="https://multiscreenblank.nookkin.com/">MultiscreenBlank</a>. It lets you manually blank out any monitor!</p>
+<p>So, I made a program that compliments that. Any monitor that doesn&#39;t contain any windows on it will be blanked out <i>automatically</i>.</p>
+<h3>Some Goofs I Made</h3>
+<p>There were 2 notable moments during development that made me laugh.</p>
+<ol>
+<li>The main monitor would be blanked out upon startup because my machine didn&#39;t have any apps open! Crazy oversight!</li>
+<li>Whenever you minimized a window on a monitor, that monitor would then be considered empty! So then you would have to go out of your way to open that app again.</li>
+</ol>
+<p>Both of these issues were easily fixed, but I still found them funny.</p>
+<h3>Summary</h3>
+<p>This is probably a niche piece of software, but I&#39;ve been using this software for over a year now! I&#39;m extremely thankful to my past self for making it!</p>
+<p>In the future, I&#39;m going to try getting rid of the MultiscreenBlank dependency. I think it&#39;d be cool if this was it&#39;s own independent thing!</p>
 
             </div>
         </div>
     </div>
 
-    <div class="project-media">
-        <div style="width: 100%;  border-radius: 16px; overflow: hidden;">
-            <video class="fit-video" src="videos/backdrop.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
-        </div>
+    <div class="project-media fade-me-in">
+        
+    </div>
+    
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
     </div>
 </div>
 
@@ -138,8 +158,24 @@
 </div>
 </div>
 
-<script src="/script.js"></script>
+
+
+
+<script src="/lib/instantpage.min.js" type="module"></script>
+
 <noscript><style>body { visibility: visible; }</style></noscript>
+<script src="/script.js?v=79018216"></script>
+
+<style>
+    .flickity-button {
+        background: linear-gradient(to right, #767BBD, #86A6C4);
+        color: white;
+    }
+
+    .flickity-button:hover, .flickity-button:active {
+        background: linear-gradient(to left, #F7374F, #88304E);
+    }
+</style>
 
 </body>
 </html>

@@ -7,12 +7,13 @@
     <title>tzainten - Blocks</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" media="screen and (min-width: 601px)" href="/style.desktop.min.css" />
-    <link rel="stylesheet" media="screen and (max-width: 600px)" href="/style.mobile.min.css" />
+    <link rel="stylesheet" href="/lib/vs2015.min.css">
     <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
+    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=285976515461377983860119593629066239398492148818982193" />
+    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=285976515461377983860119593629066239398492148818982193" />
 
-    <script src="/jasdofUFGjas.js"></script>
-    <script src="/lib/flickity/flickity.pkgd.min.js"></script>
+    <script src="/jasdofUFGjas.js" ></script>
+    <script src="/lib/flickity/flickity.pkgd.min.js" ></script>
 
     <meta name="description" content="A voxel terrain generation project. It has texture atlas support, vertex ambient occlusion, voxel chunks, noise generation, trilinear interpolation, and terrain deformation.">
 
@@ -40,6 +41,9 @@
             </a>
             <a href="https://steamcommunity.com/id/tzainten" class="social-button"> 
                 <img src="/images/steam.png" width="32" height="32">
+            </a>
+            <a href="https://discord.com/users/608055742473175040" class="social-button"> 
+                <img src="/images/discord.png" width="32" height="32">
             </a>
         </div>
     </div>
@@ -73,7 +77,7 @@
         <source src="videos/backdrop.mp4" type="video/mp4">
     </video>
     <div class="backdrop"></div>
-    <img style="position: absolute; width: 100%;" src="images/logo.png">
+    <img style="position: absolute; width: 100%;" src="images/logowide.png" alt="">
 </div>
 <div class="project-container">
     <div class="project-text">
@@ -89,15 +93,15 @@
                         </div>
                     
         
-                    <div class="project-info-slot">
-                        <p class="project-info-right" style="width: 100%;">Development Time: <span style="color: rgba(255, 255, 255, 0.6);">1 week</span></p>
-                    </div>
-                
+                        <div class="project-info-slot">
+                            <p class="project-info-right" style="width: 100%;">Development Time: <span style="color: rgba(255, 255, 255, 0.6);">1 week</span></p>
+                        </div>
+                    
     </div>
     <div class="project-info">
         
                         <div class="project-info-slot">
-                            <p style="width: 100%">Tools: <span style="color: rgba(255, 255, 255, 0.6);">C#, Git</span></p>
+                            <p style="width: 100%">Tools: <span style="color: rgba(255, 255, 255, 0.6);">C#, s&box, Git</span></p>
                         </div>
                     
         
@@ -111,20 +115,38 @@
             </div>
 
             <p class="project-summary">A voxel terrain generation project. It has texture atlas support, vertex ambient occlusion, voxel chunks, noise generation, trilinear interpolation, and terrain deformation.</p>
-            <div style="display: flex; flex-direction: column; gap: 20px; padding: 5px">
-                <p>I wanted to get familiar with s&amp;box so that I can use it to work on any game ideas I have. Working on this project helped me realize how much potential s&amp;box has, and I am excited to keep using it in the future!</p>
-<p>One thing I enjoyed was implementing <a href="https://en.wikipedia.org/wiki/Trilinear_interpolation">Trilinear Interpolation</a> for the noise generation. Instead of generating noise at every voxel, I generate noise every 4th block and interpolate between those values.</p>
+            <div class="project-body">
+                <h3>The Goal</h3>
+<p>I wanted to get familiar with s&amp;box so that I can use it to work on any game ideas I have. </p>
+<p>I&#39;ve always enjoyed trying to implement Minecraft-like worlds whenever I&#39;m exploring a new engine, so naturally I did that here as well!</p>
+<h3>Trilinear Interpolation</h3>
+<p>While I was making this, I wondered if it was really necessary to sample noise at every voxel. I did some research and <a href="https://en.wikipedia.org/wiki/Trilinear_interpolation">Trilinear Interpolation</a> came up!</p>
+<p><video class="fit-video" src="media/trilinear.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
+<p>Instead of generating noise at every voxel, I can space out the noise samples and then interpolate the empty space between!</p>
+<h3>Ambient Occlusion</h3>
 <p>My favorite part of this project was working on the ambient occlusion. I had never worked with shaders before, so this was a perfect opportunity to learn! I was lucky to have this article to reference: <a href="https://0fps.net/2013/07/03/ambient-occlusion-for-minecraft-like-worlds/">Ambient occlusion for Minecraft-like worlds</a></p>
-<p>After I had tackled ambient occlusion, I felt comfortable enough to implement texture atlas support. This was a great finale for the project because it breathed a bit of variety into the world, rather than everything being made up of stone.</p>
+<p><video class="fit-video" src="media/ao.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
+<p>What I like about this technique is that the Ambient Occlusion is baked into each voxel&#39;s vertices at generation time. There&#39;s no real-time lighting calculation at all!</p>
+<h3>Texture Atlas</h3>
+<p>After I had tackled ambient occlusion, I felt comfortable enough to implement texture atlas support.</p>
+<p><video class="fit-video" src="media/atlas.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
+<p>This was a great finale for the project because it breathed a bit of variety into the world, rather than everything being made up of stone.</p>
+<h3>Summary</h3>
+<p>Working on this project helped me realize how much potential s&amp;box has, and I am excited to keep using it in the future!</p>
+<p>I&#39;m happy that I got to learn more about shaders. They&#39;re not so scary anymore, which means I can use them in more projects now!</p>
 
             </div>
         </div>
     </div>
 
-    <div class="project-media">
-        <div style="width: 100%;  border-radius: 16px; overflow: hidden;">
-            <video class="fit-video" src="videos/backdrop.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
-        </div>
+    <div class="project-media fade-me-in">
+        <video class="fit-video" style="border-radius: 16px; overflow: hidden" src="media/ao.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video><video class="fit-video" style="border-radius: 16px; overflow: hidden" src="media/atlas.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video><video class="fit-video" style="border-radius: 16px; overflow: hidden" src="media/trilinear.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+    </div>
+    
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
     </div>
 </div>
 
@@ -133,8 +155,24 @@
 </div>
 </div>
 
-<script src="/script.js"></script>
+
+
+
+<script src="/lib/instantpage.min.js" type="module"></script>
+
 <noscript><style>body { visibility: visible; }</style></noscript>
+<script src="/script.js?v=285976515"></script>
+
+<style>
+    .flickity-button {
+        background: linear-gradient(to right, #767BBD, #86A6C4);
+        color: white;
+    }
+
+    .flickity-button:hover, .flickity-button:active {
+        background: linear-gradient(to left, #F7374F, #88304E);
+    }
+</style>
 
 </body>
 </html>

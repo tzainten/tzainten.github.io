@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tzainten - Azeroth: Minecraft Modpack</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/lib/vs2015.min.css">
+    <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
+    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=855632561618281157383475050749047173241861730617606434" />
+    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=855632561618281157383475050749047173241861730617606434" />
+
+    <script src="/jasdofUFGjas.js" ></script>
+    <script src="/lib/flickity/flickity.pkgd.min.js" ></script>
+
+    <meta name="description" content="Azeorth is a private Minecraft 1.20 modpack that adds progression elements to guide players towards the end.">
+
+    <meta property="og:title" content="tzainten - Azeroth: Minecraft Modpack">
+    <meta property="og:description" content="Azeorth is a private Minecraft 1.20 modpack that adds progression elements to guide players towards the end.">
+    <meta property="og:image" content="https://tzainten.github.io/images/avatar.jpg">
+    <meta property="og:url" content="https://tzainten.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="tzainten.github.io">
+</head>
+
+<body style="visibility: hidden;">
+<div class="body-container">
+<div class="page-container">
+
+<div class="masthead fade-me-in">
+    <img class="avatar" src="/images/avatar.jpg">
+    <div class="card-container">
+        <div>
+            <h1>Hi, I'm <span class="username">tzainten</span>. I like coding.</h1>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/tzainten/" class="social-button">
+                <img src="/images/github.png" width="32" height="32">
+            </a>
+            <a href="https://steamcommunity.com/id/tzainten" class="social-button"> 
+                <img src="/images/steam.png" width="32" height="32">
+            </a>
+            <a href="https://discord.com/users/608055742473175040" class="social-button"> 
+                <img src="/images/discord.png" width="32" height="32">
+            </a>
+        </div>
+    </div>
+    <div class="location">
+        <div style="display: flex; align-items: center; flex-direction: row; gap: 10px;">
+            <img src="/images/usa.png" height="32" />
+            <p style="white-space: nowrap;">United States</p>
+        </div>
+        <div class="time">
+            <p id="timeZone" style="white-space: nowrap;"></p>
+        </div>
+    </div>
+</div>
+
+<div class="fade-me-in quick spacer"></div>
+
+<div class="fade-me-in" style="display: flex; flex-direction: column;">
+
+<div class="fade-me-in" style="display: flex; flex-direction: column;">
+<div class="breadcrumbs">
+    <a href="/">Home</a>
+	/
+	<a href="/projects/">Projects</a>
+	/
+	<p>Azeroth: Minecraft Modpack</p>
+</div>
+</div>
+
+<div class="project-banner">
+    <video class="fit-video noclick" preload="none" autoplay loop muted playsinline>
+        <source src="videos/backdrop.mp4" type="video/mp4">
+    </video>
+    <div class="backdrop"></div>
+    <img style="position: absolute; width: 100%;" src="images/logowide.png" alt="">
+</div>
+<div class="project-container">
+    <div class="project-text">
+        <div class="fade-me-in">
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <span class="title" style="white-space: nowrap; width: fit-content; margin-right: 10px;">DEVELOPMENT INFO</span>
+        <div class="spacer"></div>
+    </div>
+    <div class="project-info">
+        
+                        <div class="project-info-slot">
+                            <p style="width: 100%">Role: <span style="color: rgba(255, 255, 255, 0.6);">Bug Fixing</span></p>
+                        </div>
+                    
+        
+    </div>
+    <div class="project-info">
+        
+                        <div class="project-info-slot">
+                            <p style="width: 100%">Tools: <span style="color: rgba(255, 255, 255, 0.6);">Java, Git, mcfunction</span></p>
+                        </div>
+                    
+        
+                        <div class="project-info-slot">
+                            <p class="project-info-right" style="width: 100%;">Source: <a href="https://github.com/tzainten/BedrockIfy/tree/1.20">BedrockIfy</a>, <a href="https://github.com/tzainten/Stellarity-Lite-True-Ending-Compat">Stellarity</a>
+</p>
+                        </div>
+                    
+    </div>
+</div>
+        
+        <div class="fade-me-in">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+                <span class="title" style="white-space: nowrap; width: fit-content; margin-right: 10px;">DESCRIPTION</span>
+                <div class="spacer"></div>
+            </div>
+
+            <p class="project-summary">Azeorth is a private Minecraft 1.20 modpack that adds progression elements to guide players towards the end.</p>
+            <div class="project-body">
+                <h3>The Goal</h3>
+<p>I wanted this modpack to feel somewhat like an RPG. The goal was to motivate players to explore the world, and try to gear up for the final boss.</p>
+<h3>Crash Fix</h3>
+<p>While I was putting this together, the <a href="https://modrinth.com/mod/bedrockify">BedrockIfy</a> mod had a fatal bug: whenever you held a Bundle in your hand, your game would crash!</p>
+<p><video class="fit-video" src="media/1.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
+<p>This was quite a simple fix: all I had to do was add in two additional checks for tooltips on both Bundles and Ender Chests. Voila!</p>
+<p><video class="fit-video" src="media/9.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
+<h3>End Island Generation</h3>
+<p>There was also 2 more mods that were very important to me: <a href="https://modrinth.com/datapack/stellarity-lite">Stellarity Lite</a> &amp; <a href="https://modrinth.com/datapack/true-ending">True Ending: Ender Dragon Overhaul</a>.</p>
+<p>These mods were conflicting. The end towers had problems with generation, and the Ender Dragon wasn&#39;t spawning correctly.</p>
+<p><video class="fit-video" src="media/2.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
+<p>Stellarity was causing the issues, so I decided to tinker around with it. It took a bit of trial and error here, but it was honestly pretty easy!</p>
+<p>After I made my changes, I managed to keep the decorations from Stellarity while also keeping the changed Boss AI behavior from True Ending!</p>
+<p><video class="fit-video" src="media/z.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
+<h3>Summary</h3>
+<p>Fixing these bugs felt nice. I feel more comfortable navigating other people&#39;s code now.</p>
+<p>I used to struggle a lot reading other people&#39;s code, because I hadn&#39;t wrote it. But this project helped me to grow a bit!</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="project-media fade-me-in">
+        <video class="fit-video" style="border-radius: 16px; overflow: hidden" src="media/1.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video><video class="fit-video" style="border-radius: 16px; overflow: hidden" src="media/2.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video><img id="myImg" class="fit-video" style="cursor: pointer; border-radius: 16px; overflow: hidden" src="media/3.png" preload="none" /><img id="myImg" class="fit-video" style="cursor: pointer; border-radius: 16px; overflow: hidden" src="media/4.png" preload="none" /><img id="myImg" class="fit-video" style="cursor: pointer; border-radius: 16px; overflow: hidden" src="media/5.png" preload="none" /><img id="myImg" class="fit-video" style="cursor: pointer; border-radius: 16px; overflow: hidden" src="media/6.png" preload="none" /><img id="myImg" class="fit-video" style="cursor: pointer; border-radius: 16px; overflow: hidden" src="media/7.png" preload="none" /><img id="myImg" class="fit-video" style="cursor: pointer; border-radius: 16px; overflow: hidden" src="media/8.png" preload="none" /><video class="fit-video" style="border-radius: 16px; overflow: hidden" src="media/9.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video><video class="fit-video" style="border-radius: 16px; overflow: hidden" src="media/z.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+    </div>
+    
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+
+
+<script src="/lib/instantpage.min.js" type="module"></script>
+
+<noscript><style>body { visibility: visible; }</style></noscript>
+<script src="/script.js?v=855632561"></script>
+
+<style>
+    .flickity-button {
+        background: linear-gradient(to right, #767BBD, #86A6C4);
+        color: white;
+    }
+
+    .flickity-button:hover, .flickity-button:active {
+        background: linear-gradient(to left, #F7374F, #88304E);
+    }
+</style>
+
+</body>
+</html>

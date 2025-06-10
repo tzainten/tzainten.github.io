@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tzainten - Portfolio</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/lib/vs2015.min.css">
+    <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
+    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=793676905790577689430502795967918202669943411237924862" />
+    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=793676905790577689430502795967918202669943411237924862" />
+
+    <script src="/jasdofUFGjas.js" ></script>
+    <script src="/lib/flickity/flickity.pkgd.min.js" ></script>
+
+    <meta name="description" content="A website built to showcase all of my documented projects.">
+
+    <meta property="og:title" content="tzainten - Portfolio">
+    <meta property="og:description" content="A website built to showcase all of my documented projects.">
+    <meta property="og:image" content="https://tzainten.github.io/images/avatar.jpg">
+    <meta property="og:url" content="https://tzainten.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="tzainten.github.io">
+</head>
+
+<body style="visibility: hidden;">
+<div class="body-container">
+<div class="page-container">
+
+<div class="masthead fade-me-in">
+    <img class="avatar" src="/images/avatar.jpg">
+    <div class="card-container">
+        <div>
+            <h1>Hi, I'm <span class="username">tzainten</span>. I like coding.</h1>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/tzainten/" class="social-button">
+                <img src="/images/github.png" width="32" height="32">
+            </a>
+            <a href="https://steamcommunity.com/id/tzainten" class="social-button"> 
+                <img src="/images/steam.png" width="32" height="32">
+            </a>
+            <a href="https://discord.com/users/608055742473175040" class="social-button"> 
+                <img src="/images/discord.png" width="32" height="32">
+            </a>
+        </div>
+    </div>
+    <div class="location">
+        <div style="display: flex; align-items: center; flex-direction: row; gap: 10px;">
+            <img src="/images/usa.png" height="32" />
+            <p style="white-space: nowrap;">United States</p>
+        </div>
+        <div class="time">
+            <p id="timeZone" style="white-space: nowrap;"></p>
+        </div>
+    </div>
+</div>
+
+<div class="fade-me-in quick spacer"></div>
+
+<div class="fade-me-in" style="display: flex; flex-direction: column;">
+
+<div class="fade-me-in" style="display: flex; flex-direction: column;">
+<div class="breadcrumbs">
+    <a href="/">Home</a>
+	/
+	<a href="/projects/">Projects</a>
+	/
+	<p>Portfolio</p>
+</div>
+</div>
+
+<div class="project-banner">
+    <video class="fit-video noclick" preload="none" autoplay loop muted playsinline>
+        <source src="videos/backdrop.mp4" type="video/mp4">
+    </video>
+    <div class="backdrop"></div>
+    <img style="position: absolute; width: 100%;" src="images/logowide.png" alt="">
+</div>
+<div class="project-container">
+    <div class="project-text">
+        <div class="fade-me-in">
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <span class="title" style="white-space: nowrap; width: fit-content; margin-right: 10px;">DEVELOPMENT INFO</span>
+        <div class="spacer"></div>
+    </div>
+    <div class="project-info">
+        
+                        <div class="project-info-slot">
+                            <p style="width: 100%">Role: <span style="color: rgba(255, 255, 255, 0.6);">Sole Developer</span></p>
+                        </div>
+                    
+        
+                        <div class="project-info-slot">
+                            <p class="project-info-right" style="width: 100%;">Development Time: <span style="color: rgba(255, 255, 255, 0.6);">1 week</span></p>
+                        </div>
+                    
+    </div>
+    <div class="project-info">
+        
+                        <div class="project-info-slot">
+                            <p style="width: 100%">Tools: <span style="color: rgba(255, 255, 255, 0.6);">HTML, CSS, JavaScript, node.js</span></p>
+                        </div>
+                    
+        
+                        <div class="project-info-slot">
+                            <p class="project-info-right" style="width: 100%;">Source: <a href="https://github.com/tzainten/tzainten.github.io">GitHub</a>
+</p>
+                        </div>
+                    
+    </div>
+</div>
+        
+        <div class="fade-me-in">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+                <span class="title" style="white-space: nowrap; width: fit-content; margin-right: 10px;">DESCRIPTION</span>
+                <div class="spacer"></div>
+            </div>
+
+            <p class="project-summary">A website built to showcase all of my documented projects.</p>
+            <div class="project-body">
+                <h3>The Goal</h3>
+<p>I needed a website that I could link people towards whenever they want to see my capabilities.</p>
+<p>I wanted something very simple. I didn&#39;t need anything fancy, this shouldn&#39;t require an entire pipeline. It just needs to be simple HTML pages.</p>
+<h3>Figuring It Out</h3>
+<p>At first, I did try using <a href="https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor">Blazor</a>, <a href="https://nextjs.org/">Next.js</a>, and then <a href="https://www.11ty.dev/">11ty</a> before I eventually landed on just writing most of this website myself.</p>
+<p>The things I enjoyed about Blazor and Next.js were the ability to write reusable components. But it felt like I had so much overhead just to use 1 simple feature.</p>
+<p>I wanted to keep things as simple as possible while writing this website. 11ty was close, but I felt like it wasn&#39;t quite the perfect fit for me. Honorable mention though!</p>
+<h3>What I Ended Up Doing</h3>
+<p>I wrote a simple node.js script that scans html files in my src folder for <span class="brown">#include</span> directives, which allowed me to write reusable HTML code that can be put anywhere.</p>
+<pre><code class="hljs language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+
+#include &quot;components/head.html&quot;
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;visibility: hidden;&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;body-container&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span>
+
+#include &quot;components/masthead.html&quot;
+
+#include &quot;components/breadcrumbs.html&quot;
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;projects&quot;</span>&gt;</span>
+    {projects}
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+#include &quot;components/footer.html&quot;
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre><p>Then all I have to do is run the script, and it will compile everything into a publish folder. Then, I just upload that to GitHub!</p>
+<p>I admit, it&#39;s jank, but it&#39;s simple to use!</p>
+<h3>Summary</h3>
+<p>I really enjoyed making this website! Using razor in s&amp;box equipped me with enough know-how to piece everything together.</p>
+<p>I would like to try Blazor or Next.js sometime in the future, so maybe I can come up with a better use case for them!</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="project-media fade-me-in">
+        
+    </div>
+    
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+
+
+<script src="/lib/instantpage.min.js" type="module"></script>
+
+<noscript><style>body { visibility: visible; }</style></noscript>
+<script src="/script.js?v=793676905"></script>
+
+<style>
+    .flickity-button {
+        background: linear-gradient(to right, #767BBD, #86A6C4);
+        color: white;
+    }
+
+    .flickity-button:hover, .flickity-button:active {
+        background: linear-gradient(to left, #F7374F, #88304E);
+    }
+</style>
+
+</body>
+</html>

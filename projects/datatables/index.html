@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tzainten - WindowSense</title>
+    <title>tzainten - Data Tables</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" media="screen and (min-width: 601px)" href="/style.desktop.min.css" />
-    <link rel="stylesheet" media="screen and (max-width: 600px)" href="/style.mobile.min.css" />
+    <link rel="stylesheet" href="/lib/vs2015.min.css">
     <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
+    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=186841396281058343330936820337690344250531428980510445" />
+    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=186841396281058343330936820337690344250531428980510445" />
 
-    <script src="/lib/flickity/flickity.pkgd.min.js"></script>
+    <script src="/jasdofUFGjas.js" ></script>
+    <script src="/lib/flickity/flickity.pkgd.min.js" ></script>
 
-    <meta name="description" content="A small program that automatically blanks out empty monitor screens.">
+    <meta name="description" content="A tool built for s&box that adds similar functionality as Data Tables in Unreal Engine">
 
-    <meta property="og:title" content="tzainten - WindowSense">
-    <meta property="og:description" content="A small program that automatically blanks out empty monitor screens.">
+    <meta property="og:title" content="tzainten - Data Tables">
+    <meta property="og:description" content="A tool built for s&box that adds similar functionality as Data Tables in Unreal Engine">
     <meta property="og:image" content="https://tzainten.github.io/images/avatar.jpg">
     <meta property="og:url" content="https://tzainten.github.io/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="tzainten.github.io">
 </head>
+
 <body style="visibility: hidden;">
 <div class="body-container">
 <div class="page-container">
@@ -38,133 +42,215 @@
             <a href="https://steamcommunity.com/id/tzainten" class="social-button"> 
                 <img src="/images/steam.png" width="32" height="32">
             </a>
+            <a href="https://discord.com/users/608055742473175040" class="social-button"> 
+                <img src="/images/discord.png" width="32" height="32">
+            </a>
+        </div>
+    </div>
+    <div class="location">
+        <div style="display: flex; align-items: center; flex-direction: row; gap: 10px;">
+            <img src="/images/usa.png" height="32" />
+            <p style="white-space: nowrap;">United States</p>
+        </div>
+        <div class="time">
+            <p id="timeZone" style="white-space: nowrap;"></p>
         </div>
     </div>
 </div>
 
 <div class="fade-me-in quick spacer"></div>
+
+<div class="fade-me-in" style="display: flex; flex-direction: column;">
+
 <div class="fade-me-in" style="display: flex; flex-direction: column;">
 <div class="breadcrumbs">
     <a href="/">Home</a>
-    >
-    <a href="/projects">Projects</a>
-    >
-    <p>WindowSense</p>
+	/
+	<a href="/projects/">Projects</a>
+	/
+	<p>Data Tables</p>
 </div>
+</div>
+
 <div class="project-banner">
     <video class="fit-video noclick" preload="none" autoplay loop muted playsinline>
         <source src="videos/backdrop.mp4" type="video/mp4">
     </video>
     <div class="backdrop"></div>
-    <img style="position: absolute; width: 100%;" src="images/logo.png">
+    <img style="position: absolute; width: 100%;" src="images/logowide.png" alt="">
 </div>
 <div class="project-container">
     <div class="project-text">
         <div class="fade-me-in">
-            <div style="display: flex; flex-direction: row; align-items: center;">
-                <span class="title" style="white-space: nowrap; width: fit-content; margin-right: 10px;">DEVELOPMENT INFO</span>
-                <div class="spacer"></div>
-            </div>
-            <div class="project-info">
-                <div class="project-info-slot">
-                    <p style="width: 100%">Role: <span style="color: rgba(255, 255, 255, 0.6);">Sole Developer</span></p>
-                    <p class="project-info-right" style="width: 100%;">Development Time: <span style="color: rgba(255, 255, 255, 0.6);">1 week<br><span style="font-size: 14px">(~2 months of occasional bug fixing)</span></span></p>
-                </div>
-                <div class="project-info-slot" style="margin-top: 5px;">
-                    <p style="width: 100%">Tools: <span style="color: rgba(255, 255, 255, 0.6);">C++, Windows API</span></p>
-                    <p class="project-info-right" style="width: 100%;">Source: <a href="https://github.com/tzainten/WindowSense">GitHub</a></p>
-                </div>
-            </div>
-        </div>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <span class="title" style="white-space: nowrap; width: fit-content; margin-right: 10px;">DEVELOPMENT INFO</span>
+        <div class="spacer"></div>
+    </div>
+    <div class="project-info">
+        
+                        <div class="project-info-slot">
+                            <p style="width: 100%">Role: <span style="color: rgba(255, 255, 255, 0.6);">Sole Developer</span></p>
+                        </div>
+                    
+        
+                        <div class="project-info-slot">
+                            <p class="project-info-right" style="width: 100%;">Development Time: <span style="color: rgba(255, 255, 255, 0.6);">1 month</span></p>
+                        </div>
+                    
+    </div>
+    <div class="project-info">
+        
+                        <div class="project-info-slot">
+                            <p style="width: 100%">Tools: <span style="color: rgba(255, 255, 255, 0.6);">C#, s&box, Git</span></p>
+                        </div>
+                    
+        
+                        <div class="project-info-slot">
+                            <p class="project-info-right" style="width: 100%;">Source: <a href="https://github.com/tzainten/DataTables">GitHub</a>, <a href="https://sbox.game/tzainten/datatables">s&amp;box</a>
+</p>
+                        </div>
+                    
+    </div>
+</div>
         
         <div class="fade-me-in">
             <div style="display: flex; flex-direction: row; align-items: center;">
                 <span class="title" style="white-space: nowrap; width: fit-content; margin-right: 10px;">DESCRIPTION</span>
                 <div class="spacer"></div>
             </div>
-            <p style="padding: 5px">I made this program because I found myself putting things like YouTube on my extra monitors just because they were empty. I felt like I was making up excuses just to have content constantly displaying.</p>
-            <p style="padding: 5px">So, I made a program that compliments <a href="https://multiscreenblank.nookkin.com/">MultiscreenBlank</a>. Any monitor that doesn't contain any windows on it will be blanked out <i>automatically</i>.</p>
-            <p style="padding: 5px">Most of the program was finished in the first week of development, and after that I have been fixing small bugs that come up through my own personal experience with the software.</p>
-            <p style="padding: 5px">I still use this software every day, and I'm extremely thankful to my past self for making it!</p>
-        </div>
-    </div>
 
-    <div class="project-media">
-        <div style="width: 100%;  border-radius: 16px; overflow: hidden;">
-            <video class="fit-video" controls muted>
-                <source src="/videos/automultiscreenblank.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-</div>
-</div>
+            <p class="project-summary">A tool built for s&box that adds similar functionality as Data Tables in Unreal Engine</p>
+            <div class="project-body">
+                <h3>The Goal</h3>
+<p>s&amp;box hosted a <a href="https://sbox.game/news/techjam1-726b8bbf">Tech Jam</a> at the end of 2024. This event&#39;s main goal was for participants to work on whatever they found interesting, and this is what I decided to work on!</p>
+<h3>Starting Out</h3>
+<p>Coming from Unreal Engine 5, I wondered how Data Tables would work in s&amp;box. In Unreal Engine, I used Data Tables to setup different spells in a side project I was working on.</p>
+<p>Data Tables are assets that you create in the editor. They hold multiple rows of a struct type that you define yourself. For example:</p>
+<pre><code class="hljs language-c#"><span class="hljs-keyword">struct</span> Item
+{
+    <span class="hljs-keyword">public</span> Texture Icon { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Name { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Description { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+}
+</code></pre><h3>The Journey</h3>
+<p>I had my first working version of the tool at the end of Week 1. It was very bare bones, and was not at all ready to be used seriously.</p>
+<p><video class="fit-video" src="media/week1.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
+<p>There was still a couple of things missing that I wanted to add:</p>
+<ul>
+<li>Hotloading Support</li>
+<li>Undo System</li>
+<li>Proper Saving Dialogs</li>
+</ul>
+<h3>JSON Serialization</h3>
+<p>Unfortunately for me, s&amp;box doesn&#39;t automatically serialize the type of an object. This wasn&#39;t going to work for my tool, so I had to implement my own solution!</p>
+<p>Luckily though, this was pretty straight forward. All I had to do was use simple recursion, iterate over an object&#39;s properties and fields, and use the built in Json.ToNode provided by s&amp;box.</p>
+<pre><code class="hljs language-json"><span class="hljs-attr">&quot;StructEntries&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+<span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;RowName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;NewEntry_0&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;List&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;Boolean&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;__type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Sandbox.B&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;Integer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">55</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;__type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Sandbox.A&quot;</span>
+    <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;__type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Sandbox.ExampleStruct&quot;</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+<span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;RowName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;NewEntry_1&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;List&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;__type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Sandbox.ExampleStruct&quot;</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+<span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+</code></pre><h3>Hotloading</h3>
+<p>Changes that you made in the tool were not being reflected in game until you restarted. </p>
+<p>I also had to use reflection heavily here. I had already implemented my own JSON Serialization solution at this point, so I was well equipped to tackle this problem!</p>
+<pre><code class="hljs language-c#"><span class="hljs-keyword">for</span> ( <span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; InternalEntries.Count; i++ )
+{
+    <span class="hljs-keyword">var</span> internalRow = InternalEntries[i];
+    <span class="hljs-keyword">var</span> row = _dataTable.StructEntries.Find( x =&gt; x.RowName == internalRow.RowName );
 
-</div>
-</div>
-
-<script>
-    if (document.referrer.indexOf(window.location.hostname) > -1)
+    <span class="hljs-keyword">if</span> ( row <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span> )
     {
-        let faders = document.querySelectorAll('.fade-me-in');
-        faders.forEach((elem) => {
-            elem.classList.remove('fade-me-in');
-            elem.style.opacity = 1;
-        });
+        <span class="hljs-comment">// This is where the hotload actually happens</span>
+        TypeLibrary.Merge( row, internalRow );
     }
+    <span class="hljs-keyword">else</span>
+    {
+        <span class="hljs-keyword">if</span> ( _weakTable.TryGetValue( internalRow.RowName, <span class="hljs-keyword">out</span> WeakReference weakReference ) )
+        {
+            <span class="hljs-keyword">if</span> ( !weakReference.IsAlive )
+            {
+                _weakTable.Remove( internalRow.RowName );
+                _dataTable.StructEntries.Insert( i, TypeLibrary.Clone( internalRow ) );
+                <span class="hljs-keyword">continue</span>;
+            }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        var videos = document.querySelectorAll('video');
+            RowStruct weakRow = (RowStruct)weakReference.Target;
+            <span class="hljs-comment">// This is where the hotload actually happens</span>
+            TypeLibrary.Merge( weakRow, internalRow );
+            _dataTable.StructEntries.Insert( i, weakRow );
+            <span class="hljs-keyword">continue</span>;
+        }
 
-        videos.forEach(function(elem) {
-            if (!elem.classList.contains("noclick"))
-                return;
+        _dataTable.StructEntries.Insert( i, TypeLibrary.Clone( internalRow ) );
+    }
+}
+</code></pre><p>I got a bit confused when implementing support for Collections, but after some thought and tinkering with it I ended up figuring that out too.</p>
+<h3>Saving Dialogs</h3>
+<p>Saving dialogs were fairly simple to implement. All I had to do was check if the serialized version of the asset had changed at any point, and then not let the user close the window until they decide what to do about it.</p>
+<p><video class="fit-video" src="media/saving.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
+<h3>Undo System</h3>
+<p>Implementing an Undo System was pretty tricky at first. A big problem I was running into was trying to get it to work with Nested Lists. The outer layer of a List would work just fine, but anything further wouldn&#39;t serialize properly.</p>
+<p>I ended up looking at some of the tools s&amp;box provides, low-and-behold the Shader Graph has a generic Undo System that&#39;s pretty much plug and play!</p>
+<p><video class="fit-video" src="media/undo.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
+<p>From what I understand, all it&#39;s doing is saving serialized states everytime you make a change. If you want to traverse to a specific state in the changelog, you just deserialize that state into your current instance of your tool and voila!</p>
+<h3>Summary</h3>
+<p>I&#39;m really happy with how the tool turned out! I&#39;m really proud of myself for pulling through and actually submitting this before the deadline.</p>
+<p>Garry mentioned the idea of doing a VR specific jam in the future, which has me excited! I&#39;ve been meaning to try out VR development, so having a VR centered jam would be the perfect opportunity!</p>
+<p>You can view all of the submitted entries <a href="https://sbox.game/c/tech1/list">here.</a></p>
 
-            elem.controls = false;
+            </div>
+        </div>
+    </div>
 
-            elem.addEventListener('play', () => {
-                this.controls = false;
-            });
+    <div class="project-media fade-me-in">
+        <video class="fit-video" style="border-radius: 16px; overflow: hidden" src="media/saving.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video><video class="fit-video" style="border-radius: 16px; overflow: hidden" src="media/undo.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video><video class="fit-video" style="border-radius: 16px; overflow: hidden" src="media/week1.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+    </div>
+    
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+</div>
 
-            elem.addEventListener('pause', () => {
-                this.controls = false;
-            });
-        });
-    });
+</div>
 
-    const faders = document.querySelectorAll(".fade-me-in");
+</div>
+</div>
 
-    let i = 0;
-    faders.forEach((elem) => {
-        let amount = 0.15;
 
-        if (elem.classList.contains("quick"))
-            amount *= 0.5;
 
-        let delay = i * amount;
-        i++;
 
-        elem.style.opacity = 0;
-        elem.style.transform = 'scale(1.1)';
-        
-        setTimeout(()=>{
-            elem.style.opacity = 1;
-            elem.style.transition = `all 0.5s ease-out ${delay}s`;
-            elem.style.transform = 'scale(1)';
-            elem.classList.remove("fade-me-in");
-        }, 0);
-    });
-
-    let domReady = (cb) => {
-    document.readyState === 'interactive' || document.readyState === 'complete'
-        ? cb()
-        : document.addEventListener('DOMContentLoaded', cb);
-    };
-
-    domReady(() => {
-        document.body.style.visibility = 'visible';
-    });
-</script>
+<script src="/lib/instantpage.min.js" type="module"></script>
 
 <noscript><style>body { visibility: visible; }</style></noscript>
+<script src="/script.js?v=186841396"></script>
+
+<style>
+    .flickity-button {
+        background: linear-gradient(to right, #767BBD, #86A6C4);
+        color: white;
+    }
+
+    .flickity-button:hover, .flickity-button:active {
+        background: linear-gradient(to left, #F7374F, #88304E);
+    }
+</style>
+
 </body>
 </html>

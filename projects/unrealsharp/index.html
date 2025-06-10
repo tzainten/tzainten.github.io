@@ -7,17 +7,18 @@
     <title>tzainten - UnrealSharp</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" media="screen and (min-width: 601px)" href="/style.desktop.min.css" />
-    <link rel="stylesheet" media="screen and (max-width: 600px)" href="/style.mobile.min.css" />
+    <link rel="stylesheet" href="/lib/vs2015.min.css">
     <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
+    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=668514372381894446786415978400359473943750502223866965" />
+    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=668514372381894446786415978400359473943750502223866965" />
 
-    <script src="/jasdofUFGjas.js"></script>
-    <script src="/lib/flickity/flickity.pkgd.min.js"></script>
+    <script src="/jasdofUFGjas.js" ></script>
+    <script src="/lib/flickity/flickity.pkgd.min.js" ></script>
 
-    <meta name="description" content="A tool that implements modern C# into UnrealSharp. It features full packaging support, as well as blazing fast hot-loading.">
+    <meta name="description" content="A tool that implements modern C# into Unreal Engine 5. It features full packaging support, as well as blazing fast hot-loading.">
 
     <meta property="og:title" content="tzainten - UnrealSharp">
-    <meta property="og:description" content="A tool that implements modern C# into UnrealSharp. It features full packaging support, as well as blazing fast hot-loading.">
+    <meta property="og:description" content="A tool that implements modern C# into Unreal Engine 5. It features full packaging support, as well as blazing fast hot-loading.">
     <meta property="og:image" content="https://tzainten.github.io/images/avatar.jpg">
     <meta property="og:url" content="https://tzainten.github.io/">
     <meta property="og:type" content="website">
@@ -40,6 +41,9 @@
             </a>
             <a href="https://steamcommunity.com/id/tzainten" class="social-button"> 
                 <img src="/images/steam.png" width="32" height="32">
+            </a>
+            <a href="https://discord.com/users/608055742473175040" class="social-button"> 
+                <img src="/images/discord.png" width="32" height="32">
             </a>
         </div>
     </div>
@@ -73,7 +77,7 @@
         <source src="videos/backdrop.mp4" type="video/mp4">
     </video>
     <div class="backdrop"></div>
-    <img style="position: absolute; width: 100%;" src="images/logo.png">
+    <img style="position: absolute; width: 100%;" src="images/logowide.png" alt="">
 </div>
 <div class="project-container">
     <div class="project-text">
@@ -85,24 +89,20 @@
     <div class="project-info">
         
                         <div class="project-info-slot">
-                            <p style="width: 100%">Role: <span style="color: rgba(255, 255, 255, 0.6);">2 Contributions</span></p>
+                            <p style="width: 100%">Role: <span style="color: rgba(255, 255, 255, 0.6);">4 Contributions</span></p>
                         </div>
                     
         
-                    <div class="project-info-slot">
-                        <p class="project-info-right" style="width: 100%;">Development Time: <span style="color: rgba(255, 255, 255, 0.6);">1 week</span></p>
-                    </div>
-                
     </div>
     <div class="project-info">
         
                         <div class="project-info-slot">
-                            <p style="width: 100%">Tools: <span style="color: rgba(255, 255, 255, 0.6);">C#, Git</span></p>
+                            <p style="width: 100%">Tools: <span style="color: rgba(255, 255, 255, 0.6);">C#, Unreal Engine 5, Git</span></p>
                         </div>
                     
         
                         <div class="project-info-slot">
-                            <p class="project-info-right" style="width: 100%;">Source: <a href="https://github.com/UnrealSharp/UnrealSharp">GitHub</a>
+                            <p class="project-info-right" style="width: 100%;">Source: <a href="https://github.com/UnrealSharp/UnrealSharp/pull/49">One</a>, <a href="https://github.com/UnrealSharp/UnrealSharp/pull/50">Two</a>, <a href="https://github.com/UnrealSharp/UnrealSharp/pull/160">Three</a>, <a href="https://github.com/UnrealSharp/UnrealSharp/pull/169">Four</a>
 </p>
                         </div>
                     
@@ -115,17 +115,73 @@
                 <div class="spacer"></div>
             </div>
 
-            <p class="project-summary">A tool that implements modern C# into UnrealSharp. It features full packaging support, as well as blazing fast hot-loading.</p>
-            <div style="display: flex; flex-direction: column; gap: 20px; padding: 5px">
-                {body}
+            <p class="project-summary">A tool that implements modern C# into Unreal Engine 5. It features full packaging support, as well as blazing fast hot-loading.</p>
+            <div class="project-body">
+                <h3>The Goal</h3>
+<p>I found this plugin in the <a href="https://discord.com/invite/unrealsource">Unreal Source</a> Discord. The purpose of this plugin is to sit between C++ and Blueprints.</p>
+<p>It was very early in development at this time, so I decided to help out where I could.</p>
+<h3>Reducing Hot Reload Spam</h3>
+<p>While coding in C#, I found myself saving my changes quite frequently. Everytime I would save, UnrealSharp would reload my code.</p>
+<p>If I had saved an error in my code, fixed it and then saved again, an error prompt would still be waiting for me in Unreal Engine.</p>
+<p>So, I added an editor setting that would only hot-load changes when the editor has focus.</p>
+<p><video class="fit-video" src="videos/backdrop.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
+<h3>Changes Weren&#39;t Loaded At First Startup</h3>
+<p>If you had Unreal Engine closed, and you made a change to your C# code, Unreal Engine would not load these changes until you saved a file.</p>
+<p>This was a pretty simple fix, but a vital one!</p>
+<pre><code class="hljs language-c#">WeaveProject weaveProject = <span class="hljs-keyword">new</span> WeaveProject();
+<span class="hljs-keyword">if</span> (!weaveProject.RunAction())
+{
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+</code></pre><h3>Compile Error</h3>
+<p>UnrealSharp switched to using a UnrealHeaderTool extension, and with this there was a small bug that some people were experiencing.</p>
+<p>It was a simple fix, the .csproj file was just missing the following:</p>
+<pre><code class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Import</span> <span class="hljs-attr">Project</span>=<span class="hljs-string">&quot;UnrealSharpScriptGenerator.ubtplugin.csproj.props&quot;</span> 
+        <span class="hljs-attr">Condition</span>=<span class="hljs-string">&quot;Exists(&#x27;UnrealSharpScriptGenerator.ubtplugin.csproj.props&#x27;)&quot;</span> /&gt;</span>
+</code></pre><h3>Compile Time Code Generation</h3>
+<p>There was a commit that switched over to generating reflection code at compile time, rather than when the project is loaded.</p>
+<p>This was a great feature to add, but I noticed something missing. The .csproj file wouldn&#39;t be generated at compile time.</p>
+<p>This was a pretty simple fix. All I had to do was invoke the UnrealSharpBuildTool to generate the file, and it was good to go!</p>
+<pre><code class="hljs language-c#"><span class="hljs-built_in">string</span>? projectName = Path.GetFileNameWithoutExtension(factory.Session.ProjectFile);
+<span class="hljs-keyword">if</span> (projectName != <span class="hljs-literal">null</span> &amp;&amp; !File.Exists(<span class="hljs-string">&quot;{factory.Session.ProjectDirectory}/Script/Managed{projectName}.csproj&quot;</span>))
+{
+    <span class="hljs-built_in">string</span> dotNetExe = DotNetUtilities.FindDotNetExecutable();
+
+    <span class="hljs-built_in">string</span> <span class="hljs-keyword">args</span> = <span class="hljs-built_in">string</span>.Empty;
+    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot;\&quot;{PluginDirectory}/Binaries/Managed/UnrealSharpBuildTool.dll\&quot;&quot;</span>;
+    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot; --Action GenerateProject&quot;</span>;
+    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot; --EngineDirectory \&quot;{factory.Session.EngineDirectory}/\&quot;&quot;</span>;
+    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot; --ProjectDirectory \&quot;{factory.Session.ProjectDirectory}/\&quot;&quot;</span>;
+    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot; --ProjectName {projectName}&quot;</span>;
+    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot; --PluginDirectory \&quot;{PluginDirectory}\&quot;&quot;</span>;
+    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot; --DotNetPath \&quot;{dotNetExe}\&quot;&quot;</span>;
+
+    Process process = <span class="hljs-keyword">new</span> Process();
+    ProcessStartInfo startInfo = <span class="hljs-keyword">new</span> ProcessStartInfo
+    {
+        WindowStyle = ProcessWindowStyle.Hidden,
+        FileName = DotNetUtilities.FindDotNetExecutable(),
+        Arguments = <span class="hljs-keyword">args</span>
+    };
+    process.StartInfo = startInfo;
+    process.Start();
+}
+</code></pre><h3>Summary</h3>
+<p>This was my first time contributing to somebody else&#39;s work. Contributing to this plugin helped me learn a bit about how pull requests work.</p>
+<p>One thing I think I could&#39;ve done better is communicate the ideas I had before actually submitting a pull request. I think I got lucky here, but going forward I&#39;m definitely going to communicate my changes better!</p>
+
             </div>
         </div>
     </div>
 
-    <div class="project-media">
-        <div style="width: 100%;  border-radius: 16px; overflow: hidden;">
-            <video class="fit-video" src="videos/backdrop.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
-        </div>
+    <div class="project-media fade-me-in">
+        
+    </div>
+    
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
     </div>
 </div>
 
@@ -134,8 +190,24 @@
 </div>
 </div>
 
-<script src="/script.js"></script>
+
+
+
+<script src="/lib/instantpage.min.js" type="module"></script>
+
 <noscript><style>body { visibility: visible; }</style></noscript>
+<script src="/script.js?v=668514372"></script>
+
+<style>
+    .flickity-button {
+        background: linear-gradient(to right, #767BBD, #86A6C4);
+        color: white;
+    }
+
+    .flickity-button:hover, .flickity-button:active {
+        background: linear-gradient(to left, #F7374F, #88304E);
+    }
+</style>
 
 </body>
 </html>

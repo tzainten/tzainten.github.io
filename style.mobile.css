@@ -3,11 +3,25 @@
   src: url("fonts/radiance.ttf");
 }
 .carousel-cell {
+  display: flex;
+  position: relative;
   margin-right: 16px;
   width: 300px;
   height: 168px;
   border-radius: 16px;
   overflow: hidden;
+  justify-content: center;
+}
+
+.project-cell {
+  display: flex;
+  position: relative;
+  margin-right: 16px;
+  width: 100%;
+  height: 100px;
+  border-radius: 16px;
+  overflow: hidden;
+  justify-content: center;
 }
 
 .carousel {
@@ -38,13 +52,25 @@ p {
   margin: 0;
 }
 
-.backdrop {
+/* .backdrop {
   position: absolute;
   width: 100%;
   height: 100%;
   pointer-events: all;
   box-shadow: 0 0 150px rgba(0, 0, 0, 0.75) inset;
   transition: all 0.2s ease-in-out;
+} */
+
+.backdrop {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  pointer-events: all;
+  box-shadow: 0 0 150px rgba(0, 0, 0, 0.75) inset;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  border-radius: 16px;
 }
 
 .backdrop:hover {
@@ -61,6 +87,7 @@ body {
 body {
   font-family: "Radiance", sans-serif;
   background: linear-gradient(#282945, #1e1d25);
+  /* background: linear-gradient(#3f3b30, #27241f); */
   background-size: cover;
   background-attachment: scroll;
   color: white;
@@ -92,6 +119,148 @@ body {
   /* background-attachment: fixed; */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   overflow-x: hidden;
+}
+
+.hljs
+{
+  border-radius: 16px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+}
+
+.project-body
+{
+  display: flex; 
+  flex-direction: column; 
+  gap: 20px; 
+  padding: 5px;
+}
+
+.project-body h3
+{
+  margin: 0;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  animation-name: fade-in;
+  animation-duration: 0.2s;
+}
+
+@-webkit-keyframes fade-in {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 60%;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.2s;
+  animation-name: zoom;
+  animation-duration: 0.2s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.project-body p {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+.project-body ul {
+  margin: 0;
+}
+
+.project-body ol {
+  margin: 0;
+  gap: 100px;
+}
+
+.project-body li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.project-body pre {
+  margin: 0;
+}
+
+.project-grid
+{
+  display: grid;
+  position: relative;
+  grid-template-rows: 250px;
+  grid-template-columns: 1fr;
+}
+
+.project-description
+{
+  padding: 5px;
+  font-size: 15px;
+  line-height: 17px;
+  color: rgb(160, 160, 160);
+  word-break: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-line-clamp: 3;
+  -moz-line-clamp: 3;
+  -ms-line-clamp: 3;
+  overflow: hidden;
 }
 
 .project-banner {
@@ -161,19 +330,21 @@ body {
 }
 
 .masthead {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   gap: 10px;
 }
 
 .location {
+  position: absolute;
   display: flex; 
   flex-direction: column; 
-  justify-content: center;
-  right: 0px; 
+  align-items: flex-end;
+  right: 0px;
   top: 0px;
 }
 
@@ -219,8 +390,37 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
+.xp-text {
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+
+  background: linear-gradient(90deg, #bf953f, #fcf6ba, #bf953f);
+  -webkit-background: -webkit-linear-gradient(90deg, #bf953f, #fcf6ba, #bf953f);
+  background-size: 200% 100%;
+  -webkit-background-size: 200% 100%;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shimmer 3s infinite linear;
+  -webkit-animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0; /* Start the gradient off-screen to the left */
+    -webkit-background-position: -200% 0; /* Start the gradient off-screen to the left */
+  }
+  100% {
+    background-position: 200% 0; /* Move the gradient across the text to the right */
+    -webkit-background-position: 200% 0; /* Move the gradient across the text to the right */
+  }
+}
+
 a {
-  background: linear-gradient(to right, #5459AC, #648DB3);
+  background: linear-gradient(to right, #767BBD, #86A6C4);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -276,7 +476,7 @@ li a:hover {
 }
 
 .username {
-  background: linear-gradient(to right, #5459AC, #648DB3);
+  background: linear-gradient(to right, #767BBD, #86A6C4);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -290,26 +490,6 @@ li a:hover {
   font-size: 15px;
   transition: all 0.1s ease-out;
 }
-.show-all .show-all-text {
-  background: linear-gradient(to right, #5459AC, #648DB3);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.show-all:hover .show-all-text {
-  background: linear-gradient(to left, #F7374F, #88304E);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.show-all:not(:active) .show-all-text {
-  background: linear-gradient(to right, #5459AC, #648DB3);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 .avatar {
   display: flex;
@@ -322,6 +502,7 @@ li a:hover {
 .card-container {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   /* border: 1px solid red; */
 }
 
@@ -343,9 +524,9 @@ li a:hover {
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(2, 500px);
+  grid-template-columns: 1fr;
   flex-direction: row;
   justify-content: flex-start;
-  flex-grow: 1;
   width: 100%;
+  gap: 15px;
 }

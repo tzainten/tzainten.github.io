@@ -1,12 +1,13 @@
+{
 let domReady = (cb) => {
-    document.readyState === 'interactive' || document.readyState === 'complete'
-        ? cb()
-        : document.addEventListener('DOMContentLoaded', cb);
-    };
+document.readyState === 'interactive' || document.readyState === 'complete'
+    ? cb()
+    : document.addEventListener('DOMContentLoaded', cb);
+};
 
-    domReady(() => {
-        document.body.style.visibility = 'visible';
-    });
+domReady(() => {
+    document.body.style.visibility = 'visible';
+});
 
 if (document.referrer.indexOf(window.location.hostname) > -1)
 {
@@ -65,7 +66,7 @@ const update = (flickity) => {
     if(!flickity) return;
     if(flickity.isPaused) return;
     if(!flickity.slides) return;
-    flickity.x = (flickity.x - flickity.tickerSpeed) % flickity.slideableWidth;
+    flickity.x = (flickity.x - flickity.tickerSpeed);// % flickity.slideableWidth;
     flickity.selectedIndex = flickity.dragEndRestingSelect();
     flickity.updateSelectedSlide();
     flickity.settle(flickity.x);
@@ -76,7 +77,7 @@ const pause = (e) => {
     if (typeof e !== "undefined" && typeof e.target !== "undefined")
     {
         let flickity = getFlickity(e.target);
-        if (typeof flickity !== "undefined")
+        if (flickity && typeof flickity !== "undefined")
         {
             flickity.isPaused = true;
         }
@@ -87,7 +88,7 @@ const play = (e) => {
     if (typeof e !== "undefined" && typeof e.target !== "undefined")
     {
         let flickity = getFlickity(e.target);
-        if (typeof flickity !== "undefined" && flickity.isPaused) {
+        if (flickity && typeof flickity !== "undefined" && flickity.isPaused) {
             flickity.isPaused = false;
             window.requestAnimationFrame(() => update(flickity));
         }
@@ -102,6 +103,11 @@ const getFlickity = (elem) => {
         elem = elem.parentElement;
     }
 };
+
+function isMobile() {
+  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  return regex.test(navigator.userAgent);
+}
 
 const carousels = document.querySelectorAll(".carousel");
 carousels.forEach((carousel) => {
@@ -120,10 +126,23 @@ carousels.forEach((carousel) => {
     flickity.tickerSpeed = tickerSpeed;
     carousel.flickityInstance = flickity;
 
-    carousel.addEventListener('pointerover', pause, false);
-    carousel.addEventListener('pointerout', play, false);
-    carousel.addEventListener('pointerdown', pause, false);
-    carousel.addEventListener('pointerup', play, false);
+    let flickityButtons = document.querySelectorAll(".flickity-button");
+    flickityButtons.forEach(btn => {
+        btn.addEventListener("pointerdown", (e) => {
+            pause(e);
+        }, false);
+        btn.addEventListener("pointerup", (e) => {
+            flickity.on('settle', () => {
+                play(e);
+            });
+        }, false);
+    });
+
+    if (!isMobile())
+    {
+        carousel.addEventListener('pointerover', pause, false);
+        carousel.addEventListener('pointerout', play, false);
+    }
 
     flickity.on('dragStart', () => {
         pause();
@@ -189,3 +208,33 @@ updateTime();
 setInterval(() => {
     updateTime();
 }, 1000);
+
+const xpTexts = document.querySelectorAll('.xp-text');
+xpTexts.forEach(element => {
+    const randomDelay = Math.random() * 3;
+    element.style.animationDelay = `${randomDelay}s`;
+});
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var imgs = document.querySelectorAll("#myImg");
+imgs.forEach(element => {
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    element.onclick = function(){
+        modal.style.display = "flex";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+});
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+}
