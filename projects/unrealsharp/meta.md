@@ -2,7 +2,7 @@
 title: UnrealSharp
 description: A tool that implements modern C# into Unreal Engine 5. It features full packaging support, as well as blazing fast hot-loading.
 role: 4 Contributions
-tools: C#, Unreal Engine 5, Git
+tools: cs, ue, git
 source: "[One](https://github.com/UnrealSharp/UnrealSharp/pull/49), [Two](https://github.com/UnrealSharp/UnrealSharp/pull/50), [Three](https://github.com/UnrealSharp/UnrealSharp/pull/160), [Four](https://github.com/UnrealSharp/UnrealSharp/pull/169)"
 ---
 

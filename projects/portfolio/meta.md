@@ -3,7 +3,7 @@ title: Portfolio
 description: A website built to showcase all of my documented projects.
 role: Sole Developer
 dev-time: 1 week
-tools: HTML, CSS, JavaScript, node.js
+tools: html, css, javascript, nodejs
 source: "[GitHub](https://github.com/tzainten/tzainten.github.io)"
 ---
 

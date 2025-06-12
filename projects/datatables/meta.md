@@ -3,7 +3,7 @@ title: Data Tables
 description: A tool built for s&box that adds similar functionality as Data Tables in Unreal Engine
 role: Sole Developer
 dev-time: 1 month
-tools: C#, s&box, Git
+tools: cs, sbox, git
 source: "[GitHub](https://github.com/tzainten/DataTables), [s&box](https://sbox.game/tzainten/datatables)"
 ---
 

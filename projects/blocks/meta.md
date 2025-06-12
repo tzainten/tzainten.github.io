@@ -3,7 +3,7 @@ title: Blocks
 description: A voxel terrain generation project. It has texture atlas support, vertex ambient occlusion, voxel chunks, noise generation, trilinear interpolation, and terrain deformation.
 role: Sole Developer
 dev-time: 1 week
-tools: C#, s&box, Git
+tools: cs, sbox, git
 ---
 
 ### The Goal

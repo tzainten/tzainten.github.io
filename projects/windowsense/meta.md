@@ -4,7 +4,7 @@ description: A small program that automatically blanks out empty monitor screens
 role: Sole Developer
 dev-time: 1 week
 dev-time-extra: ~2 months occasional bug fixing
-tools: C++, Windows API, Git
+tools: cpp, git
 source: "[GitHub](https://github.com/tzainten/windowsense)"
 ---
 

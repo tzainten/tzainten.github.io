@@ -2,7 +2,7 @@
 title: "Azeroth: Minecraft Modpack"
 description: Azeorth is a private Minecraft 1.20 modpack that adds progression elements to guide players towards the end.
 role: Bug Fixing
-tools: Java, Git, mcfunction
+tools: java, git, mcfunction
 source: "[BedrockIfy](https://github.com/tzainten/BedrockIfy/tree/1.20), [Stellarity](https://github.com/tzainten/Stellarity-Lite-True-Ending-Compat)"
 ---
 

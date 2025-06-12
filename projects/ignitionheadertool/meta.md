@@ -3,7 +3,7 @@ title: IgnitionHeaderTool
 description: A tool built for Unreal Engine 5 that implements a custom Event Function Specifier
 role: Sole Developer
 dev-time: 2 weeks
-tools: C#, Git
+tools: cs, git
 source: "[Legacy](https://github.com/tzainten/IgnitionHeaderTool/tree/legacy), [Main](https://github.com/tzainten/IgnitionHeaderTool)"
 ---
 

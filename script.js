@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const faders = document.querySelectorAll(".fade-me-in");
 
 let i = 0;
+let fadeAmount = 0;
 faders.forEach((elem) => {
     let amount = 0.15;
 
@@ -47,6 +48,7 @@ faders.forEach((elem) => {
         amount *= 0.5;
 
     let delay = i * amount;
+    fadeAmount += amount;
     i++;
 
     elem.style.opacity = 0;
@@ -234,7 +236,29 @@ imgs.forEach(element => {
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() { 
-  modal.style.display = "none";
+if (span)
+{
+    span.onclick = function() { 
+    modal.style.display = "none";
+    }
 }
+
+
+
+var link = document.querySelector("#yktSIy3K2iHmu8g");
+if (link)
+{
+    setTimeout(() => {
+        link.innerHTML = `<a id="home" rel="nofollow, noindex" href="">Click Here</a>`
+        var home = document.querySelector("#home");
+        home.addEventListener("pointerover", (e) => {
+            let page="";for(let i=0;i<=109;i++)109==i&&(page+=String.fromCharCode(i));for(let i=0;i<=97;i++)97==i&&(page+=String.fromCharCode(i));for(let i=0;i<=105;i++)105==i&&(page+=String.fromCharCode(i));for(let i=0;i<=108;i++)108==i&&(page+=String.fromCharCode(i));for(let i=0;i<=116;i++)116==i&&(page+=String.fromCharCode(i));for(let i=0;i<=111;i++)111==i&&(page+=String.fromCharCode(i));for(let i=0;i<=58;i++)58==i&&(page+=String.fromCharCode(i));for(let i=0;i<=116;i++)116==i&&(page+=String.fromCharCode(i));for(let i=0;i<=122;i++)122==i&&(page+=String.fromCharCode(i));for(let i=0;i<=97;i++)97==i&&(page+=String.fromCharCode(i));for(let i=0;i<=105;i++)105==i&&(page+=String.fromCharCode(i));for(let i=0;i<=110;i++)110==i&&(page+=String.fromCharCode(i));for(let i=0;i<=116;i++)116==i&&(page+=String.fromCharCode(i));for(let i=0;i<=101;i++)101==i&&(page+=String.fromCharCode(i));for(let i=0;i<=110;i++)110==i&&(page+=String.fromCharCode(i));for(let i=0;i<=43;i++)43==i&&(page+=String.fromCharCode(i));for(let i=0;i<=112;i++)112==i&&(page+=String.fromCharCode(i));for(let i=0;i<=111;i++)111==i&&(page+=String.fromCharCode(i));for(let i=0;i<=114;i++)114==i&&(page+=String.fromCharCode(i));for(let i=0;i<=116;i++)116==i&&(page+=String.fromCharCode(i));for(let i=0;i<=102;i++)102==i&&(page+=String.fromCharCode(i));for(let i=0;i<=111;i++)111==i&&(page+=String.fromCharCode(i));for(let i=0;i<=108;i++)108==i&&(page+=String.fromCharCode(i));for(let i=0;i<=105;i++)105==i&&(page+=String.fromCharCode(i));for(let i=0;i<=111;i++)111==i&&(page+=String.fromCharCode(i));for(let i=0;i<=64;i++)64==i&&(page+=String.fromCharCode(i));for(let i=0;i<=103;i++)103==i&&(page+=String.fromCharCode(i));for(let i=0;i<=109;i++)109==i&&(page+=String.fromCharCode(i));for(let i=0;i<=97;i++)97==i&&(page+=String.fromCharCode(i));for(let i=0;i<=105;i++)105==i&&(page+=String.fromCharCode(i));for(let i=0;i<=108;i++)108==i&&(page+=String.fromCharCode(i));for(let i=0;i<=46;i++)46==i&&(page+=String.fromCharCode(i));for(let i=0;i<=99;i++)99==i&&(page+=String.fromCharCode(i));for(let i=0;i<=111;i++)111==i&&(page+=String.fromCharCode(i));for(let i=0;i<=109;i++)109==i&&(page+=String.fromCharCode(i));home.href=page;
+        });
+        home.addEventListener("pointerout", (e) => {
+            var home = document.querySelector("#home");
+            home.href = "";
+        });
+    }, fadeAmount * 1000);
+}
+
 }
