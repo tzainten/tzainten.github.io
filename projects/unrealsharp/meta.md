@@ -20,7 +20,7 @@ If I had saved an error in my code, fixed it and then saved again, an error prom
 
 So, I added an editor setting that would only hot-load changes when the editor has focus.
 
-@[video](media/backdrop.mp4)
+@[video](videos/backdrop.mp4)
 
 ### Changes Weren't Loaded At First Startup
 
