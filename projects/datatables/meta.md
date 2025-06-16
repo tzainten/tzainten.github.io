@@ -30,7 +30,7 @@ struct Item
 
 I had my first working version of the tool at the end of Week 1. It was very bare bones, and was not at all ready to be used seriously.
 
-<video class="fit-video" src="media/week1.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+@[video](media/week1.mp4)
 
 There was still a couple of things missing that I wanted to add:
 - Hotloading Support
@@ -113,7 +113,7 @@ I got a bit confused when implementing support for Collections, but after some t
 
 Saving dialogs were fairly simple to implement. All I had to do was check if the serialized version of the asset had changed at any point, and then not let the user close the window until they decide what to do about it.
 
-<video class="fit-video" src="media/saving.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+@[video](media/saving.mp4)
 
 ### Undo System
 
@@ -121,7 +121,7 @@ Implementing an Undo System was pretty tricky at first. A big problem I was runn
 
 I ended up looking at some of the tools s&box provides, low-and-behold the Shader Graph has a generic Undo System that's pretty much plug and play!
 
-<video class="fit-video" src="media/undo.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+@[video](media/undo.mp4)
 
 From what I understand, all it's doing is saving serialized states everytime you make a change. If you want to traverse to a specific state in the changelog, you just deserialize that state into your current instance of your tool and voila!
 

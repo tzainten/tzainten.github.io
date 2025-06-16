@@ -13,7 +13,7 @@ While I was using Unreal Engine 5, I felt disappointed to learn there isn't a UF
 
 [Multi-cast Delegates](https://dev.epicgames.com/documentation/en-us/unreal-engine/multicast-delegates-in-unreal-engine) do exist, but they're a bit more maintenance than what I ended up making.
 
-```c++
+```cpp
 UCLASS()
 class ASuperActor : public AActor
 {

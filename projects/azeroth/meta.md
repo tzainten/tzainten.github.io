@@ -12,11 +12,11 @@ I wanted this modpack to feel somewhat like an RPG. The goal was to motivate pla
 ### Crash Fix
 While I was putting this together, the [BedrockIfy](https://modrinth.com/mod/bedrockify) mod had a fatal bug: whenever you held a Bundle in your hand, your game would crash!
 
-<video class="fit-video" src="media/1.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+@[video](media/1.mp4)
 
 This was quite a simple fix: all I had to do was add in two additional checks for tooltips on both Bundles and Ender Chests. Voila!
 
-<video class="fit-video" src="media/9.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+@[video](media/9.mp4)
 
 ### End Island Generation
 
@@ -24,13 +24,13 @@ There was also 2 more mods that were very important to me: [Stellarity Lite](htt
 
 These mods were conflicting. The end towers had problems with generation, and the Ender Dragon wasn't spawning correctly.
 
-<video class="fit-video" src="media/2.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+@[video](media/2.mp4)
 
 Stellarity was causing the issues, so I decided to tinker around with it. It took a bit of trial and error here, but it was honestly pretty easy!
 
 After I made my changes, I managed to keep the decorations from Stellarity while also keeping the changed Boss AI behavior from True Ending!
 
-<video class="fit-video" src="media/z.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+@[video](media/z.mp4)
 
 ### Summary
 

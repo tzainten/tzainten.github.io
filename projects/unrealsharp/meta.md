@@ -20,7 +20,7 @@ If I had saved an error in my code, fixed it and then saved again, an error prom
 
 So, I added an editor setting that would only hot-load changes when the editor has focus.
 
-<video class="fit-video" src="videos/backdrop.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+@[video](media/backdrop.mp4)
 
 ### Changes Weren't Loaded At First Startup
 
@@ -62,13 +62,13 @@ if (projectName != null && !File.Exists("{factory.Session.ProjectDirectory}/Scri
     string dotNetExe = DotNetUtilities.FindDotNetExecutable();
 
     string args = string.Empty;
-    args += "\"{PluginDirectory}/Binaries/Managed/UnrealSharpBuildTool.dll\"";
+    args += $"\"{PluginDirectory}/Binaries/Managed/UnrealSharpBuildTool.dll\"";
     args += " --Action GenerateProject";
-    args += " --EngineDirectory \"{factory.Session.EngineDirectory}/\"";
-    args += " --ProjectDirectory \"{factory.Session.ProjectDirectory}/\"";
-    args += " --ProjectName {projectName}";
-    args += " --PluginDirectory \"{PluginDirectory}\"";
-    args += " --DotNetPath \"{dotNetExe}\"";
+    args += $" --EngineDirectory \"{factory.Session.EngineDirectory}/\"";
+    args += $" --ProjectDirectory \"{factory.Session.ProjectDirectory}/\"";
+    args += $" --ProjectName {projectName}";
+    args += $" --PluginDirectory \"{PluginDirectory}\"";
+    args += $" --DotNetPath \"{dotNetExe}\"";
 
     Process process = new Process();
     ProcessStartInfo startInfo = new ProcessStartInfo

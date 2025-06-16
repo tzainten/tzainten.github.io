@@ -9,8 +9,8 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/lib/vs2015.min.css">
     <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
-    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=84258094326161982967006011384651602082580897516774090" />
-    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=84258094326161982967006011384651602082580897516774090" />
+    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=424069848305070941596611928361191176360144435190456785" />
+    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=424069848305070941596611928361191176360144435190456785" />
 
     <script src="/lib/flickity/flickity.pkgd.min.js" ></script>
 
@@ -144,51 +144,51 @@
 <p>While coding in C#, I found myself saving my changes quite frequently. Everytime I would save, UnrealSharp would reload my code.</p>
 <p>If I had saved an error in my code, fixed it and then saved again, an error prompt would still be waiting for me in Unreal Engine.</p>
 <p>So, I added an editor setting that would only hot-load changes when the editor has focus.</p>
-<p><video class="fit-video" src="videos/backdrop.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
-<h3>Changes Weren&#39;t Loaded At First Startup</h3>
+<p><video class="fit-video" src="media/backdrop.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video></p>
+<h3>Changes Weren't Loaded At First Startup</h3>
 <p>If you had Unreal Engine closed, and you made a change to your C# code, Unreal Engine would not load these changes until you saved a file.</p>
 <p>This was a pretty simple fix, but a vital one!</p>
-<pre><code class="hljs language-c#">WeaveProject weaveProject = <span class="hljs-keyword">new</span> WeaveProject();
-<span class="hljs-keyword">if</span> (!weaveProject.RunAction())
-{
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-}
-</code></pre><h3>Compile Error</h3>
+<pre class="shiki dark-plus" style="color:#D4D4D4" tabindex="0"><code class="language-c#"><span class="line"><span style="color:#4EC9B0">WeaveProject</span><span style="color:#9CDCFE"> weaveProject</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">new</span><span style="color:#4EC9B0"> WeaveProject</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#C586C0">if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">weaveProject</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">RunAction</span><span style="color:#D4D4D4">())</span></span>
+<span class="line"><span style="color:#D4D4D4">{</span></span>
+<span class="line"><span style="color:#C586C0">    return</span><span style="color:#569CD6"> false</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
+<h3>Compile Error</h3>
 <p>UnrealSharp switched to using a UnrealHeaderTool extension, and with this there was a small bug that some people were experiencing.</p>
 <p>It was a simple fix, the .csproj file was just missing the following:</p>
-<pre><code class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Import</span> <span class="hljs-attr">Project</span>=<span class="hljs-string">&quot;UnrealSharpScriptGenerator.ubtplugin.csproj.props&quot;</span> 
-        <span class="hljs-attr">Condition</span>=<span class="hljs-string">&quot;Exists(&#x27;UnrealSharpScriptGenerator.ubtplugin.csproj.props&#x27;)&quot;</span> /&gt;</span>
-</code></pre><h3>Compile Time Code Generation</h3>
+<pre class="shiki dark-plus" style="color:#D4D4D4" tabindex="0"><code class="language-xml"><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">Import</span><span style="color:#9CDCFE"> Project</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"UnrealSharpScriptGenerator.ubtplugin.csproj.props"</span><span style="color:#D4D4D4"> </span></span>
+<span class="line"><span style="color:#9CDCFE">        Condition</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"Exists('UnrealSharpScriptGenerator.ubtplugin.csproj.props')"</span><span style="color:#808080"> /></span></span></code></pre>
+<h3>Compile Time Code Generation</h3>
 <p>There was a commit that switched over to generating reflection code at compile time, rather than when the project is loaded.</p>
-<p>This was a great feature to add, but I noticed something missing. The .csproj file wouldn&#39;t be generated at compile time.</p>
+<p>This was a great feature to add, but I noticed something missing. The .csproj file wouldn't be generated at compile time.</p>
 <p>This was a pretty simple fix. All I had to do was invoke the UnrealSharpBuildTool to generate the file, and it was good to go!</p>
-<pre><code class="hljs language-c#"><span class="hljs-built_in">string</span>? projectName = Path.GetFileNameWithoutExtension(factory.Session.ProjectFile);
-<span class="hljs-keyword">if</span> (projectName != <span class="hljs-literal">null</span> &amp;&amp; !File.Exists(<span class="hljs-string">&quot;{factory.Session.ProjectDirectory}/Script/Managed{projectName}.csproj&quot;</span>))
-{
-    <span class="hljs-built_in">string</span> dotNetExe = DotNetUtilities.FindDotNetExecutable();
-
-    <span class="hljs-built_in">string</span> <span class="hljs-keyword">args</span> = <span class="hljs-built_in">string</span>.Empty;
-    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot;\&quot;{PluginDirectory}/Binaries/Managed/UnrealSharpBuildTool.dll\&quot;&quot;</span>;
-    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot; --Action GenerateProject&quot;</span>;
-    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot; --EngineDirectory \&quot;{factory.Session.EngineDirectory}/\&quot;&quot;</span>;
-    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot; --ProjectDirectory \&quot;{factory.Session.ProjectDirectory}/\&quot;&quot;</span>;
-    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot; --ProjectName {projectName}&quot;</span>;
-    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot; --PluginDirectory \&quot;{PluginDirectory}\&quot;&quot;</span>;
-    <span class="hljs-keyword">args</span> += <span class="hljs-string">&quot; --DotNetPath \&quot;{dotNetExe}\&quot;&quot;</span>;
-
-    Process process = <span class="hljs-keyword">new</span> Process();
-    ProcessStartInfo startInfo = <span class="hljs-keyword">new</span> ProcessStartInfo
-    {
-        WindowStyle = ProcessWindowStyle.Hidden,
-        FileName = DotNetUtilities.FindDotNetExecutable(),
-        Arguments = <span class="hljs-keyword">args</span>
-    };
-    process.StartInfo = startInfo;
-    process.Start();
-}
-</code></pre><h3>Summary</h3>
-<p>This was my first time contributing to somebody else&#39;s work. Contributing to this plugin helped me learn a bit about how pull requests work.</p>
-<p>One thing I think I could&#39;ve done better is communicate the ideas I had before actually submitting a pull request. I think I got lucky here, but going forward I&#39;m definitely going to communicate my changes better!</p>
+<pre class="shiki dark-plus" style="color:#D4D4D4" tabindex="0"><code class="language-c#"><span class="line"><span style="color:#569CD6">string</span><span style="color:#D4D4D4">? </span><span style="color:#9CDCFE">projectName</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">Path</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">GetFileNameWithoutExtension</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">factory</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">Session</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">ProjectFile</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">projectName</span><span style="color:#D4D4D4"> != </span><span style="color:#569CD6">null</span><span style="color:#D4D4D4"> &#x26;&#x26; !</span><span style="color:#9CDCFE">File</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">Exists</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"{factory.Session.ProjectDirectory}/Script/Managed{projectName}.csproj"</span><span style="color:#D4D4D4">))</span></span>
+<span class="line"><span style="color:#D4D4D4">{</span></span>
+<span class="line"><span style="color:#569CD6">    string</span><span style="color:#9CDCFE"> dotNetExe</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">DotNetUtilities</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">FindDotNetExecutable</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    string</span><span style="color:#9CDCFE"> args</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">string</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">Empty</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    args</span><span style="color:#D4D4D4"> += </span><span style="color:#CE9178">$"</span><span style="color:#D7BA7D">\"</span><span style="color:#CE9178">{</span><span style="color:#9CDCFE">PluginDirectory</span><span style="color:#CE9178">}/Binaries/Managed/UnrealSharpBuildTool.dll</span><span style="color:#D7BA7D">\"</span><span style="color:#CE9178">"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    args</span><span style="color:#D4D4D4"> += </span><span style="color:#CE9178">" --Action GenerateProject"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    args</span><span style="color:#D4D4D4"> += </span><span style="color:#CE9178">$" --EngineDirectory </span><span style="color:#D7BA7D">\"</span><span style="color:#CE9178">{</span><span style="color:#9CDCFE">factory</span><span style="color:#CE9178">.</span><span style="color:#9CDCFE">Session</span><span style="color:#CE9178">.</span><span style="color:#9CDCFE">EngineDirectory</span><span style="color:#CE9178">}/</span><span style="color:#D7BA7D">\"</span><span style="color:#CE9178">"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    args</span><span style="color:#D4D4D4"> += </span><span style="color:#CE9178">$" --ProjectDirectory </span><span style="color:#D7BA7D">\"</span><span style="color:#CE9178">{</span><span style="color:#9CDCFE">factory</span><span style="color:#CE9178">.</span><span style="color:#9CDCFE">Session</span><span style="color:#CE9178">.</span><span style="color:#9CDCFE">ProjectDirectory</span><span style="color:#CE9178">}/</span><span style="color:#D7BA7D">\"</span><span style="color:#CE9178">"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    args</span><span style="color:#D4D4D4"> += </span><span style="color:#CE9178">$" --ProjectName {</span><span style="color:#9CDCFE">projectName</span><span style="color:#CE9178">}"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    args</span><span style="color:#D4D4D4"> += </span><span style="color:#CE9178">$" --PluginDirectory </span><span style="color:#D7BA7D">\"</span><span style="color:#CE9178">{</span><span style="color:#9CDCFE">PluginDirectory</span><span style="color:#CE9178">}</span><span style="color:#D7BA7D">\"</span><span style="color:#CE9178">"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    args</span><span style="color:#D4D4D4"> += </span><span style="color:#CE9178">$" --DotNetPath </span><span style="color:#D7BA7D">\"</span><span style="color:#CE9178">{</span><span style="color:#9CDCFE">dotNetExe</span><span style="color:#CE9178">}</span><span style="color:#D7BA7D">\"</span><span style="color:#CE9178">"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4EC9B0">    Process</span><span style="color:#9CDCFE"> process</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">new</span><span style="color:#4EC9B0"> Process</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#4EC9B0">    ProcessStartInfo</span><span style="color:#9CDCFE"> startInfo</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">new</span><span style="color:#4EC9B0"> ProcessStartInfo</span></span>
+<span class="line"><span style="color:#D4D4D4">    {</span></span>
+<span class="line"><span style="color:#9CDCFE">        WindowStyle</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">ProcessWindowStyle</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">Hidden</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">        FileName</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">DotNetUtilities</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">FindDotNetExecutable</span><span style="color:#D4D4D4">(),</span></span>
+<span class="line"><span style="color:#9CDCFE">        Arguments</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">args</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"><span style="color:#9CDCFE">    process</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">StartInfo</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">startInfo</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    process</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">Start</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
+<h3>Summary</h3>
+<p>This was my first time contributing to somebody else's work. Contributing to this plugin helped me learn a bit about how pull requests work.</p>
+<p>One thing I think I could've done better is communicate the ideas I had before actually submitting a pull request. I think I got lucky here, but going forward I'm definitely going to communicate my changes better!</p>
 
             </div>
         </div>
@@ -216,7 +216,7 @@
 <script src="/lib/instantpage.min.js" type="module"></script>
 
 <noscript><style>body { visibility: visible; }</style></noscript>
-<script src="/script.js?v=842580943" defer></script>
+<script src="/script.js?v=424069848" defer></script>
 
 <style>
     .flickity-button {

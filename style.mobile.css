@@ -127,6 +127,14 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
 }
 
+pre
+{
+  padding: 15px;
+  border-radius: 16px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+  overflow: auto;
+}
+
 .project-body
 {
   display: flex; 
@@ -138,6 +146,16 @@ body {
 .project-body h3
 {
   margin: 0;
+}
+
+.project-body p
+{
+  color: rgb(200, 200, 200);
+}
+
+.project-body strong
+{
+  color: white;
 }
 
 .modal {

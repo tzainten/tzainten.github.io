@@ -9,8 +9,8 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/lib/vs2015.min.css">
     <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
-    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=6880415431563419133333605052106704565220630649018048" />
-    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=6880415431563419133333605052106704565220630649018048" />
+    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=72842502450204310321767200347199683878001078700618440" />
+    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=72842502450204310321767200347199683878001078700618440" />
 
     <script src="/lib/flickity/flickity.pkgd.min.js" ></script>
 
@@ -149,39 +149,39 @@
             <div class="project-body">
                 <h3>The Goal</h3>
 <p>I needed a website that I could link people towards whenever they want to see my capabilities.</p>
-<p>I wanted something very simple. I didn&#39;t need anything fancy, this shouldn&#39;t require an entire pipeline. It just needs to be simple HTML pages.</p>
+<p>I wanted something very simple. I didn't need anything fancy, this shouldn't require an entire pipeline. It just needs to be simple HTML pages.</p>
 <h3>Figuring It Out</h3>
 <p>At first, I did try using <a href="https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor">Blazor</a>, <a href="https://nextjs.org/">Next.js</a>, and then <a href="https://www.11ty.dev/">11ty</a> before I eventually landed on just writing most of this website myself.</p>
 <p>The things I enjoyed about Blazor and Next.js were the ability to write reusable components. But it felt like I had so much overhead just to use 1 simple feature.</p>
-<p>I wanted to keep things as simple as possible while writing this website. 11ty was close, but I felt like it wasn&#39;t quite the perfect fit for me. Honorable mention though!</p>
+<p>I wanted to keep things as simple as possible while writing this website. 11ty was close, but I felt like it wasn't quite the perfect fit for me. Honorable mention though!</p>
 <h3>What I Ended Up Doing</h3>
-<p>I wrote a simple node.js script that scans html files in my src folder for <span class="brown">#include</span> directives, which allowed me to write reusable HTML code that can be put anywhere.</p>
-<pre><code class="hljs language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
-
-#include &quot;components/head.html&quot;
-
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;visibility: hidden;&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;body-container&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span>
-
-#include &quot;components/masthead.html&quot;
-
-#include &quot;components/breadcrumbs.html&quot;
-
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;projects&quot;</span>&gt;</span>
-    {projects}
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-#include &quot;components/footer.html&quot;
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code></pre><p>Then all I have to do is run the script, and it will compile everything into a publish folder. Then, I just upload that to GitHub!</p>
-<p>I admit, it&#39;s jank, but it&#39;s simple to use!</p>
+<p>I wrote a simple node.js script that scans html files in my src folder for <strong>#include</strong> directives, which allowed me to write reusable HTML code that can be put anywhere.</p>
+<pre class="shiki dark-plus" style="color:#D4D4D4" tabindex="0"><code class="language-html"><span class="line"><span style="color:#808080">&#x3C;!</span><span style="color:#569CD6">DOCTYPE</span><span style="color:#9CDCFE"> html</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">html</span><span style="color:#9CDCFE"> lang</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"en"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">#include "components/head.html"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">body</span><span style="color:#9CDCFE"> style</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"visibility: hidden;"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"body-container"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"page-container"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">#include "components/masthead.html"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">#include "components/breadcrumbs.html"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"projects"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">    {projects}</span></span>
+<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">#include "components/footer.html"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">body</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">html</span><span style="color:#808080">></span></span></code></pre>
+<p>Then all I have to do is run the script, and it will compile everything into a publish folder. Then, I just upload that to GitHub!</p>
+<p>I admit, it's jank, but it's simple to use!</p>
 <h3>Summary</h3>
 <p>I really enjoyed making this website! Using razor in s&amp;box equipped me with enough know-how to piece everything together.</p>
 <p>I would like to try Blazor or Next.js sometime in the future, so maybe I can come up with a better use case for them!</p>
@@ -212,7 +212,7 @@
 <script src="/lib/instantpage.min.js" type="module"></script>
 
 <noscript><style>body { visibility: visible; }</style></noscript>
-<script src="/script.js?v=68804154" defer></script>
+<script src="/script.js?v=72842502" defer></script>
 
 <style>
     .flickity-button {

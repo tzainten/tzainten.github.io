@@ -9,8 +9,8 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/lib/vs2015.min.css">
     <link rel="stylesheet" href="/lib/flickity/flickity.min.css">
-    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=627442488616024898182463123842576419403948176987598816" />
-    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=627442488616024898182463123842576419403948176987598816" />
+    <link rel="stylesheet" media="screen and (min-width: 721px)" href="/style.desktop.min.css?v=552360280289291774104323262102302009955507593604934500" />
+    <link rel="stylesheet" media="screen and (max-width: 720px)" href="/style.mobile.min.css?v=552360280289291774104323262102302009955507593604934500" />
 
     <script src="/lib/flickity/flickity.pkgd.min.js" ></script>
 
@@ -136,25 +136,25 @@
             <p class="project-summary">A tool built for Unreal Engine 5 that implements a custom Event Function Specifier</p>
             <div class="project-body">
                 <h3>The Goal</h3>
-<p>While I was using Unreal Engine 5, I felt disappointed to learn there isn&#39;t a UFUNCTION Event System built-in.</p>
-<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/multicast-delegates-in-unreal-engine">Multi-cast Delegates</a> do exist, but they&#39;re a bit more maintenance than what I ended up making.</p>
-<pre><code class="hljs language-c++"><span class="hljs-built_in">UCLASS</span>()
-<span class="hljs-keyword">class</span> <span class="hljs-title class_">ASuperActor</span> : <span class="hljs-keyword">public</span> AActor
-{
-    <span class="hljs-built_in">GENERATED_BODY</span>();
-
-    <span class="hljs-comment">// Subscribe to this event</span>
-    <span class="hljs-built_in">UFUNCTION</span>(Event = <span class="hljs-string">&quot;MySuperCoolEvent&quot;</span>)
-    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SuperDuperAwesome</span><span class="hljs-params">()</span></span>;
-}
-</code></pre><pre><code class="hljs language-c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SomeAmazingFunction</span><span class="hljs-params">()</span>
-</span>{
-    <span class="hljs-comment">// Broadcast this event to all listeners</span>
-    <span class="hljs-built_in">EVENT_RUN</span>(<span class="hljs-string">&quot;MySuperCoolEvent&quot;</span>);
-}
-</code></pre><h3>The Pain</h3>
-<p>For the first version, I wrote a parser myself. It was an interesting problem to solve, and I&#39;m glad I did it; though it was pretty painful to get working.</p>
-<p>The problem with this approach is that I had to be able to parse Unreal Engine&#39;s API as well. I thought to myself: why can&#39;t I just extend Unreal Engine&#39;s parser?</p>
+<p>While I was using Unreal Engine 5, I felt disappointed to learn there isn't a UFUNCTION Event System built-in.</p>
+<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/multicast-delegates-in-unreal-engine">Multi-cast Delegates</a> do exist, but they're a bit more maintenance than what I ended up making.</p>
+<pre class="shiki dark-plus" style="color:#D4D4D4" tabindex="0"><code class="language-cpp"><span class="line"><span style="color:#DCDCAA">UCLASS</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#569CD6">class</span><span style="color:#4EC9B0"> ASuperActor</span><span style="color:#D4D4D4"> : </span><span style="color:#569CD6">public</span><span style="color:#4EC9B0"> AActor</span></span>
+<span class="line"><span style="color:#D4D4D4">{</span></span>
+<span class="line"><span style="color:#DCDCAA">    GENERATED_BODY</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    // Subscribe to this event</span></span>
+<span class="line"><span style="color:#DCDCAA">    UFUNCTION</span><span style="color:#D4D4D4">(</span><span style="color:#4EC9B0">Event</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"MySuperCoolEvent"</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#569CD6">    void</span><span style="color:#DCDCAA"> SuperDuperAwesome</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
+<pre class="shiki dark-plus" style="color:#D4D4D4" tabindex="0"><code class="language-c++"><span class="line"><span style="color:#569CD6">void</span><span style="color:#DCDCAA"> SomeAmazingFunction</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">{</span></span>
+<span class="line"><span style="color:#6A9955">    // Broadcast this event to all listeners</span></span>
+<span class="line"><span style="color:#DCDCAA">    EVENT_RUN</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"MySuperCoolEvent"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
+<h3>The Pain</h3>
+<p>For the first version, I wrote a parser myself. It was an interesting problem to solve, and I'm glad I did it; though it was pretty painful to get working.</p>
+<p>The problem with this approach is that I had to be able to parse Unreal Engine's API as well. I thought to myself: why can't I just extend Unreal Engine's parser?</p>
 <h3>UnrealHeaderTool</h3>
 <p>I learned that Unreal Engine uses something called <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unrealheadertool?application_version=4.27">UnrealHeaderTool</a> to parse your C++ header files.</p>
 <p>This seemed like exactly what I wanted, and eventually I was able to find an article detailing how to <a href="https://unrealist.org/uht-plugins/">Extend the Unreal Header Tool with Plugins.</a></p>
@@ -165,53 +165,53 @@
 <li>int64</li>
 <li>int8</li>
 </ul>
-<p>I think this is a much better way to represent how big your data types are, but they don&#39;t provide this kind of convention for floats. Turns out you can extend this with UHT as well!</p>
-<pre><code class="hljs language-cs">[<span class="hljs-meta">UnrealHeaderTool</span>]
-[<span class="hljs-meta">UhtEngineClass( Name = <span class="hljs-string">&quot;Float32Property&quot;</span>, IsProperty = true )</span>]
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">UhtFloat32Property</span> : <span class="hljs-title">UhtNumericProperty</span>
-{
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-built_in">string</span> EngineClassName =&gt; <span class="hljs-string">&quot;FloatProperty&quot;</span>;
-    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-built_in">string</span> CppTypeText =&gt; <span class="hljs-string">&quot;float32&quot;</span>;
-
-    <span class="hljs-comment">// ...culled for the sake of brevity...</span>
-}
-
-[<span class="hljs-meta">UnrealHeaderTool</span>]
-[<span class="hljs-meta">UhtEngineClass( Name = <span class="hljs-string">&quot;Float64Property&quot;</span>, IsProperty = true )</span>]
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">UhtFloat32Property</span> : <span class="hljs-title">UhtNumericProperty</span>
-{
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-built_in">string</span> EngineClassName =&gt; <span class="hljs-string">&quot;DoubleProperty&quot;</span>;
-    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-built_in">string</span> CppTypeText =&gt; <span class="hljs-string">&quot;float64&quot;</span>;
-
-    <span class="hljs-comment">// ...culled for the sake of brevity...</span>
-}
-</code></pre><p>This adds UFUNCTION support for the types:</p>
+<p>I think this is a much better way to represent how big your data types are, but they don't provide this kind of convention for floats. Turns out you can extend this with UHT as well!</p>
+<pre class="shiki dark-plus" style="color:#D4D4D4" tabindex="0"><code class="language-cs"><span class="line"><span style="color:#D4D4D4">[</span><span style="color:#4EC9B0">UnrealHeaderTool</span><span style="color:#D4D4D4">]</span></span>
+<span class="line"><span style="color:#D4D4D4">[</span><span style="color:#4EC9B0">UhtEngineClass</span><span style="color:#D4D4D4">( </span><span style="color:#9CDCFE">Name</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"Float32Property"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">IsProperty</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4"> )]</span></span>
+<span class="line"><span style="color:#569CD6">public</span><span style="color:#569CD6"> class</span><span style="color:#4EC9B0"> UhtFloat32Property</span><span style="color:#D4D4D4"> : </span><span style="color:#4EC9B0">UhtNumericProperty</span></span>
+<span class="line"><span style="color:#D4D4D4">{</span></span>
+<span class="line"><span style="color:#569CD6">    public</span><span style="color:#569CD6"> override</span><span style="color:#569CD6"> string</span><span style="color:#9CDCFE"> EngineClassName</span><span style="color:#D4D4D4"> => </span><span style="color:#CE9178">"FloatProperty"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#569CD6">    protected</span><span style="color:#569CD6"> override</span><span style="color:#569CD6"> string</span><span style="color:#9CDCFE"> CppTypeText</span><span style="color:#D4D4D4"> => </span><span style="color:#CE9178">"float32"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    // ...culled for the sake of brevity...</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">[</span><span style="color:#4EC9B0">UnrealHeaderTool</span><span style="color:#D4D4D4">]</span></span>
+<span class="line"><span style="color:#D4D4D4">[</span><span style="color:#4EC9B0">UhtEngineClass</span><span style="color:#D4D4D4">( </span><span style="color:#9CDCFE">Name</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"Float64Property"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">IsProperty</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4"> )]</span></span>
+<span class="line"><span style="color:#569CD6">public</span><span style="color:#569CD6"> class</span><span style="color:#4EC9B0"> UhtFloat32Property</span><span style="color:#D4D4D4"> : </span><span style="color:#4EC9B0">UhtNumericProperty</span></span>
+<span class="line"><span style="color:#D4D4D4">{</span></span>
+<span class="line"><span style="color:#569CD6">    public</span><span style="color:#569CD6"> override</span><span style="color:#569CD6"> string</span><span style="color:#9CDCFE"> EngineClassName</span><span style="color:#D4D4D4"> => </span><span style="color:#CE9178">"DoubleProperty"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#569CD6">    protected</span><span style="color:#569CD6"> override</span><span style="color:#569CD6"> string</span><span style="color:#9CDCFE"> CppTypeText</span><span style="color:#D4D4D4"> => </span><span style="color:#CE9178">"float64"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    // ...culled for the sake of brevity...</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
+<p>This adds UFUNCTION support for the types:</p>
 <ul>
 <li>float32</li>
 <li>float64</li>
 </ul>
 <h3>Custom Function Specifiers</h3>
 <p>Unreal Engine has a list of <a href="https://unreal-garden.com/docs/ufunction/">Function Specifiers</a> you can use by default. Appending your own is really simple:</p>
-<pre><code class="hljs language-cs">[<span class="hljs-meta">UhtSpecifier( Extends = UhtTableNames.Function,
-               ValueType = UhtSpecifierValueType.String,
-               When = UhtSpecifierWhen.Immediate )</span>]
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">EventSpecifier</span>(<span class="hljs-params"> UhtSpecifierContext specifierContext, StringView <span class="hljs-keyword">value</span> </span>)</span>
-{
-    UhtFunction function = (UhtFunction)specifierContext.Type;
-
-    EFunctionFlags flag = (EFunctionFlags)<span class="hljs-number">0x00000010</span>; <span class="hljs-comment">// Internally unused function flag</span>
-    function.FunctionFlags |= flag;
-}
-</code></pre><p>Keep in mind, there was only one unused function flag at the time of making this. If this hasn&#39;t changed, then that means you can only have 1 custom function specifier!</p>
+<pre class="shiki dark-plus" style="color:#D4D4D4" tabindex="0"><code class="language-cs"><span class="line"><span style="color:#D4D4D4">[</span><span style="color:#4EC9B0">UhtSpecifier</span><span style="color:#D4D4D4">( </span><span style="color:#9CDCFE">Extends</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">UhtTableNames</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">Function</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">               ValueType</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">UhtSpecifierValueType</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">String</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">               When</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">UhtSpecifierWhen</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">Immediate</span><span style="color:#D4D4D4"> )]</span></span>
+<span class="line"><span style="color:#569CD6">public</span><span style="color:#569CD6"> static</span><span style="color:#569CD6"> void</span><span style="color:#DCDCAA"> EventSpecifier</span><span style="color:#D4D4D4">( </span><span style="color:#4EC9B0">UhtSpecifierContext</span><span style="color:#9CDCFE"> specifierContext</span><span style="color:#D4D4D4">, </span><span style="color:#4EC9B0">StringView</span><span style="color:#9CDCFE"> value</span><span style="color:#D4D4D4"> )</span></span>
+<span class="line"><span style="color:#D4D4D4">{</span></span>
+<span class="line"><span style="color:#4EC9B0">    UhtFunction</span><span style="color:#9CDCFE"> function</span><span style="color:#D4D4D4"> = (</span><span style="color:#4EC9B0">UhtFunction</span><span style="color:#D4D4D4">)</span><span style="color:#9CDCFE">specifierContext</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">Type</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4EC9B0">    EFunctionFlags</span><span style="color:#9CDCFE"> flag</span><span style="color:#D4D4D4"> = (</span><span style="color:#4EC9B0">EFunctionFlags</span><span style="color:#D4D4D4">)</span><span style="color:#B5CEA8">0x00000010</span><span style="color:#D4D4D4">; </span><span style="color:#6A9955">// Internally unused function flag</span></span>
+<span class="line"><span style="color:#9CDCFE">    function</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">FunctionFlags</span><span style="color:#D4D4D4"> |= </span><span style="color:#9CDCFE">flag</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
+<p>Keep in mind, there was only one unused function flag at the time of making this. If this hasn't changed, then that means you can only have 1 custom function specifier!</p>
 <h3>The Final Result</h3>
 <p>After reverse-engineering the generated code that UnrealHeaderTool spits out, I was able to add functionality to my custom Function Specifier.</p>
-<p>I basically step in after UHT generates code, and then inject my own code afterwards. This works really well, but it&#39;s not as clean as I&#39;d like it to be.</p>
+<p>I basically step in after UHT generates code, and then inject my own code afterwards. This works really well, but it's not as clean as I'd like it to be.</p>
 <h3>Function Parameter Support</h3>
 <p>I did add partial support for this. However, it is a very poor implementation. I stopped using Unreal Engine shortly after s&amp;box started maturing.</p>
-<p>Going back in and finishing up this feature could be a fun weekend project though. We&#39;ll see!</p>
+<p>Going back in and finishing up this feature could be a fun weekend project though. We'll see!</p>
 <h3>Summary</h3>
 <p>UnrealHeaderTool is really powerful! It was a blast experimenting with it to see what I could do.</p>
-<p>It&#39;s really unfortunate that a lot of the C++ API is poorly documented. I felt like I was uncovering an ancient scroll when I discovered you can extend UnrealHeaderTool.</p>
+<p>It's really unfortunate that a lot of the C++ API is poorly documented. I felt like I was uncovering an ancient scroll when I discovered you can extend UnrealHeaderTool.</p>
 <p>But it seems to be getting better. Epic Games seems to be starting to take their documentation much more seriously.</p>
 
             </div>
@@ -240,7 +240,7 @@
 <script src="/lib/instantpage.min.js" type="module"></script>
 
 <noscript><style>body { visibility: visible; }</style></noscript>
-<script src="/script.js?v=627442488" defer></script>
+<script src="/script.js?v=552360280" defer></script>
 
 <style>
     .flickity-button {

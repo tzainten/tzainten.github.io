@@ -23,7 +23,7 @@ I wanted to keep things as simple as possible while writing this website. 11ty w
 
 ### What I Ended Up Doing
 
-I wrote a simple node.js script that scans html files in my src folder for <span class="brown">#include</span> directives, which allowed me to write reusable HTML code that can be put anywhere.
+I wrote a simple node.js script that scans html files in my src folder for **#include** directives, which allowed me to write reusable HTML code that can be put anywhere.
 
 ```html
 <!DOCTYPE html>

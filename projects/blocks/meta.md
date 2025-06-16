@@ -16,7 +16,7 @@ I've always enjoyed trying to implement Minecraft-like worlds whenever I'm explo
 
 While I was making this, I wondered if it was really necessary to sample noise at every voxel. I did some research and [Trilinear Interpolation](https://en.wikipedia.org/wiki/Trilinear_interpolation) came up!
 
-<video class="fit-video" src="media/trilinear.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+@[video](media/trilinear.mp4)
 
 Instead of generating noise at every voxel, I can space out the noise samples and then interpolate the empty space between!
 
@@ -24,7 +24,7 @@ Instead of generating noise at every voxel, I can space out the noise samples an
 
 My favorite part of this project was working on the ambient occlusion. I had never worked with shaders before, so this was a perfect opportunity to learn! I was lucky to have this article to reference: [Ambient occlusion for Minecraft-like worlds](https://0fps.net/2013/07/03/ambient-occlusion-for-minecraft-like-worlds/)
 
-<video class="fit-video" src="media/ao.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+@[video](media/ao.mp4)
 
 What I like about this technique is that the Ambient Occlusion is baked into each voxel's vertices at generation time. There's no real-time lighting calculation at all!
 
@@ -32,7 +32,7 @@ What I like about this technique is that the Ambient Occlusion is baked into eac
 
 After I had tackled ambient occlusion, I felt comfortable enough to implement texture atlas support.
 
-<video class="fit-video" src="media/atlas.mp4#t=0.1" type="video/mp4" preload="metadata" controls muted></video>
+@[video](media/atlas.mp4)
 
 This was a great finale for the project because it breathed a bit of variety into the world, rather than everything being made up of stone.
 
