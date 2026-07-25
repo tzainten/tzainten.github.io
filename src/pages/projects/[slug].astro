@@ -1,0 +1,52 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, tagline, language, size, license, deps, source } = project.data;
+---
+
+<Layout title=`tzainten — ${title}`>
+    <div class="fade-me-in">
+      <a class="back" href="/">Home</a>
+
+      <header>
+        <h1>{title}</h1>
+        <p class="tagline" set:html={tagline}></p>
+      </header>
+    </div>
+
+    <div class="meta-row fade-me-in">
+        {language && (
+        <span><span class="k">Lang</span>{language}</span>
+        )}
+        {size && (
+        <span><span class="k">Size</span>{size}</span>
+        )}
+        {license && (
+        <span><span class="k">License</span>{license}</span>
+        )}
+        {deps && (
+        <span><span class="k">Deps</span><span set:html={deps}></span></span>
+        )}
+        {source && (
+        <span><span class="k">Source</span><a href={source}>GitHub</a></span>
+        )}
+    </div>
+
+    <div class="content fade-me-in quick">
+        <Content />
+    </div>
+
+    <a class="back fade-me-in" href="/">Home</a>
+</Layout>

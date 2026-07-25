@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+
+// Highest rating first; equal ratings fall back to alphabetical order.
+const projects = (await getCollection("projects")).sort(
+    (a, b) => b.data.rating - a.data.rating || a.data.title.localeCompare(b.data.title),
+);
+---
+
+<div class="fade-me-in">
+    <h2>Projects</h2>
+    
+    <div class="entries">
+        {projects.map((project) => (
+            <div class="entry fade-me-in">
+                <a class="name" href={`/projects/${project.id}`}>{project.data.title}</a> &mdash;
+                <span class="desc">
+                    <tagline set:html={project.data.tagline}></tagline>
+                    <span class="meta"> ({project.data.language}, {project.data.size})</span>
+                </span>
+            </div>
+        ))}
+    </div>
+</div>
