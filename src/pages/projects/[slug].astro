@@ -14,9 +14,10 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const { Content } = await render(project);
 const { title, tagline, language, year, size, license, deps, source } = project.data;
+const plainTagline = tagline.replace(/<[^>]*>/g, "");
 ---
 
-<Layout title=`tzainten — ${title}` description={tagline}>
+<Layout title=`tzainten — ${title}` description={plainTagline}>
     <div class="fade-me-in">
       <a class="back" href="/">Home</a>
 
