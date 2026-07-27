@@ -41,7 +41,13 @@
 }
 
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+  /* The intro transform overshoots by 5% a side; clip it so the transient
+     overflow can't widen the page or zoom mobile browsers out. */
+  overflow-x: hidden;
+  overflow-x: clip;
+}
 
 body {
   margin: 0;

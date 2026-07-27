@@ -31,13 +31,19 @@ faders.forEach((elem) => {
     fadeAmount += amount;
     i++;
 
+    // A nested fader already rides its parent's scale; scaling it again
+    // compounds the transform and pushes content past the viewport.
+    let nested = elem.parentElement && elem.parentElement.closest(".fade-me-in");
+
     elem.style.opacity = 0;
-    elem.style.transform = 'scale(1.1)';
-    
+    if (!nested)
+        elem.style.transform = 'scale(1.1)';
+
     setTimeout(()=>{
         elem.style.transition = `all 0.5s ease-out ${delay}s`;
         elem.style.opacity = 1;
-        elem.style.transform = 'scale(1)';
+        if (!nested)
+            elem.style.transform = 'scale(1)';
         elem.classList.remove("fade-me-in");
     }, 500);
 });
