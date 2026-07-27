@@ -17,6 +17,7 @@ const projects = defineCollection({
     title: z.string(),
     tagline: z.string(),
     language: z.string(),
+    year: z.number().int(),
     rating: z.number().default(0),
     size: z.string().optional(),
     license: z.string().optional(),

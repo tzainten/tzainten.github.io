@@ -2,10 +2,11 @@
 title: Data Tables
 tagline: A tool built for s&box that adds similar functionality as Data Tables from Unreal Engine
 language: C#
+year: 2024
 rating: 80
 size: ~2,800 LOC
 license: MIT
-deps: none
+deps: <a href="https://sbox.game">s&box</a>
 source: https://github.com/tzainten/DataTables
 ---
 

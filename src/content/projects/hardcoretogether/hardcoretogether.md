@@ -2,6 +2,7 @@
 title: Hardcore Together
 tagline: A mod for <a href="https://www.minecraft.net/en-us">Minecraft</a> to make the yearly Minecraft phase more chaotic and unique.
 language: Java
+year: 2026
 rating: 40
 size: ~300 LOC
 ---

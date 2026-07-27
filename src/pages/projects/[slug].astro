@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, tagline, language, size, license, deps, source } = project.data;
+const { title, tagline, language, year, size, license, deps, source } = project.data;
 ---
 
 <Layout title=`tzainten — ${title}`>
@@ -21,7 +21,12 @@ const { title, tagline, language, size, license, deps, source } = project.data;
       <a class="back" href="/">Home</a>
 
       <header>
-        <h1>{title}</h1>
+        <div style="display: flex; flex-direction: row; align-items: center; gap: 15px;">
+          <h1>{title}</h1>
+          {year && (
+          <span class="project-year">({year})</span>
+          )}
+        </div>
         <p class="tagline" set:html={tagline}></p>
       </header>
     </div>

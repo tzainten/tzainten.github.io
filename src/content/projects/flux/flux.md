@@ -2,10 +2,10 @@
 title: Flux
 tagline: A code-injector for <a href="https://sbox.game/">s&box</a> that lets you inject code directly into a package.
 language: C#
+year: 2026
 rating: 100
 size: ~940 LOC
 license: MIT
-deps: none
 source: https://github.com/tzainten/Flux
 ---
 

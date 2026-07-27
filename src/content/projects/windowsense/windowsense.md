@@ -2,10 +2,11 @@
 title: WindowSense
 tagline: A small program for Windows 11 that automatically blanks out empty monitor screens.
 language: C++
+year: 2024
 rating: 100
 size: ~250 LOC
 license: MIT
-deps: <a href="https://multiscreenblank.nookkin.com/">Test</a>
+deps: <a href="https://multiscreenblank.nookkin.com/">MultiscreenBlank</a>
 source: https://github.com/tzainten/WindowSense
 ---
 

@@ -5,20 +5,35 @@ import { getCollection } from "astro:content";
 const projects = (await getCollection("projects")).sort(
     (a, b) => b.data.rating - a.data.rating || a.data.title.localeCompare(b.data.title),
 );
+
+// Bucket by year, then list the years newest first.
+const byYear = new Map<number, typeof projects>();
+for (const project of projects) {
+    const bucket = byYear.get(project.data.year);
+    if (bucket) bucket.push(project);
+    else byYear.set(project.data.year, [project]);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
 ---
 
 <div class="fade-me-in">
     <h2>Projects</h2>
-    
-    <div class="entries">
-        {projects.map((project) => (
-            <div class="entry fade-me-in">
-                <a class="name" href={`/projects/${project.id}`}>{project.data.title}</a> &mdash;
-                <span class="desc">
-                    <tagline set:html={project.data.tagline}></tagline>
-                    <span class="meta"> ({project.data.language}, {project.data.size})</span>
-                </span>
+
+    {years.map((year) => (
+        <div class="year-group">
+            <h3 class="year fade-me-in">{year}</h3>
+
+            <div class="entries">
+                {byYear.get(year)!.map((project) => (
+                    <div class="entry fade-me-in">
+                        <a class="name" href={`/projects/${project.id}`}>{project.data.title}</a> &mdash;
+                        <span class="desc">
+                            <tagline set:html={project.data.tagline}></tagline>
+                            <span class="meta"> ({project.data.language}, {project.data.size})</span>
+                        </span>
+                    </div>
+                ))}
             </div>
-        ))}
-    </div>
+        </div>
+    ))}
 </div>
