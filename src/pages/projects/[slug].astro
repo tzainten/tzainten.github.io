@@ -16,7 +16,7 @@ const { Content } = await render(project);
 const { title, tagline, language, year, size, license, deps, source } = project.data;
 ---
 
-<Layout title=`tzainten — ${title}`>
+<Layout title=`tzainten — ${title}` description={tagline}>
     <div class="fade-me-in">
       <a class="back" href="/">Home</a>
 

@@ -4,9 +4,10 @@ import '../style.css';
 
 interface Props {
 	title?: string;
+	description?: string;
 }
 
-const { title = "tzainten — I like coding" } = Astro.props;
+const { title = "tzainten — I like coding", description = "I make things. Sometimes they even work." } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,6 +18,15 @@ const { title = "tzainten — I like coding" } = Astro.props;
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<meta name="description" content={description}>
+
+		<meta property="og:title" content={title}>
+		<meta property="og:description" content={description}>
+		<meta property="og:image" content="https://tzainten.com/assets/avatar.gif">
+		<meta property="og:url" content="https://tzainten.com/">
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="tzainten.com">
 	</head>
 	<body>
 		<div class="wrap">
