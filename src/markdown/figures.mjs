@@ -38,7 +38,7 @@ export function figures() {
         count += 1;
 
         const media = VIDEO_EXT.test(src)
-          ? el("video", { src, controls: true })
+          ? el("video", { src, controls: true, muted: true, playsInline: true, poster: src.replace(/\.\w+$/, '.jpg') })
           : el("img", { src, alt });
 
         const figure = el("figure", {}, [
